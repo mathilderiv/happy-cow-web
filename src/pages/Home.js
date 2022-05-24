@@ -64,12 +64,13 @@ export default function Home() {
             <p className="see-all">View all {">"}</p>
           </Link>
         </div>
-        <Link className="restaurant-link" to="/restaurant">
-          <div className="main">
-            {restaurants.slice(0, 10).map((item) => {
-              const adressAndCountry = item.address.split(",");
-              const restaurantDescription = item.description.slice(0, 75);
-              return (
+
+        <div className="main">
+          {restaurants.slice(0, 10).map((item) => {
+            const adressAndCountry = item.address.split(",");
+            const restaurantDescription = item.description.slice(0, 100);
+            return (
+              <Link className="restaurant-link" to={"/restaurant"} state={item}>
                 <div key={item.placeId} className="restaurants-cards">
                   <div className="icons-picture">
                     <FontAwesomeIcon
@@ -121,10 +122,11 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              );
-            })}
-          </div>
-        </Link>
+              </Link>
+            );
+          })}
+        </div>
+
         <div className="category2">
           <h2>10 Best Vegan Restaurants in Paris, France</h2>
           <p className="see-10">View all {">"}</p>
