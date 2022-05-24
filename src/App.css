@@ -137,7 +137,7 @@ h2 {
 .restaurants-cards {
   height: 350px;
   margin-right: 1rem;
-  width: calc(100% / 4 - 34px / 3);
+  width: calc(100% / 4 - 48px / 3);
 }
 
 .restaurant-picture {
@@ -160,6 +160,7 @@ h2 {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+
   color: #444444;
   font-size: 16px;
 }

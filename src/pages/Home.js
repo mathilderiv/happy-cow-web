@@ -34,6 +34,8 @@ export default function Home() {
     return tab;
   };
 
+  const cityAndZipCode = () => {};
+
   return (
     <div>
       <div className="top">
@@ -61,6 +63,8 @@ export default function Home() {
         <Link className="restaurant-link" to="/restaurant">
           <div className="main">
             {restaurants.slice(0, 10).map((item) => {
+              const adressAndCountry = item.address.split(",");
+              const restaurantDescription = item.description.slice(0, 100);
               return (
                 <>
                   <div key={item.placeId} className="restaurants-cards">
@@ -88,22 +92,26 @@ export default function Home() {
                       />
                       <h3>{item.name}</h3>
                     </div>
-                    <div>
+                    <div className="address">
                       <p
+                        className="city-country"
                         style={{
                           color: "#777777",
                           fontWeight: "bold",
                           fontSize: "14px",
                         }}
                       >
-                        {item.address}
+                        {adressAndCountry[adressAndCountry.length - 3]} ,{" "}
+                        {adressAndCountry[adressAndCountry.length - 1]} ,{" "}
+                        {adressAndCountry[adressAndCountry.length - 2]}
                       </p>
+
                       <div className="rating">
                         <p>{displayStars(item.rating)}</p>
                         <p>{item.placeId} reviews</p>
                       </div>
                       <div className="description">
-                        <p>{item.description}</p>
+                        <p>{restaurantDescription}</p>
                       </div>
                     </div>
                   </div>
