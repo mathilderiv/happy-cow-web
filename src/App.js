@@ -15,9 +15,22 @@ import {
   faStar,
   faStarHalfStroke,
   faHeart,
+  faArrowUpFromBracket,
+  faPlaneDeparture,
+  faBookmark,
+  faHouse,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faMagnifyingGlass, faStar, faHeart, faStarHalfStroke);
+library.add(
+  faMagnifyingGlass,
+  faStar,
+  faHeart,
+  faStarHalfStroke,
+  faArrowUpFromBracket,
+  faPlaneDeparture,
+  faBookmark,
+  faHouse
+);
 
 function App() {
   return (

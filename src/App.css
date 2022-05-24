@@ -241,13 +241,13 @@ h2 {
   margin-top: 1rem;
   margin-bottom: 10px;
 }
+
 /* INPUT */
 
 .form {
   position: relative;
   text-align: center;
   top: 90px;
-
   display: flex;
   justify-content: center;
 }
@@ -272,12 +272,67 @@ input::placeholder {
 
 /* PAGE RESTAURANT */
 
-.restaurant-details {
+/* .restaurant-details {
   border: 1px solid red;
-  height: 150px;
-  width: 200px;
+} */
+
+.details-title {
+  display: flex;
+  height: 5rem;
+  border: 1px solid #22820e;
+  background-color: #22820e;
+  padding-left: 11rem;
+  padding-right: 11rem;
 }
 
+.container {
+  padding-left: 11rem;
+  padding-right: 11rem;
+}
+
+.right-details {
+  display: flex;
+
+  margin-top: 25px;
+  justify-content: center;
+  width: 20%;
+  margin-left: 50rem;
+}
+
+.icons-details {
+  height: 6rem;
+  border: black solid 1px;
+  padding-left: 11rem;
+  padding-right: 11rem;
+}
+.pictures-restaurant {
+  height: 29rem;
+
+  border: orange 1px solid;
+}
+
+.navigation {
+  display: flex;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.center {
+  display: flex;
+}
+
+.last-picture {
+  text-align: center;
+}
+
+/* MAP */
+
+.map {
+  height: 337px;
+  width: 40%;
+  border: black solid 2px;
+}
 /* 
 FOOTER */
 
