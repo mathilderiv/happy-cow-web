@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 import Home from "./pages/Home";
 import AllRestaurants from "./pages/AllRestaurants";
 import Restaurant from "./pages/Restaurant";
@@ -12,9 +13,11 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faMagnifyingGlass,
   faStar,
+  faStarHalfStroke,
   faHeart,
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faMagnifyingGlass, faStar, faHeart);
+
+library.add(faMagnifyingGlass, faStar, faHeart, faStarHalfStroke);
 
 function App() {
   return (
@@ -24,9 +27,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/all" element={<AllRestaurants />} />
-          <Route path="restaurant" element={<Restaurant />} />
+          <Route path="restaurant/:placeId" element={<Restaurant />} />
         </Routes>
-        <Routes></Routes>
+        <Footer />
       </Router>
     </div>
   );

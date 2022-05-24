@@ -1,7 +1,12 @@
-export default function Restaurant() {
+import { useParams } from "react-router-dom";
+
+const Restaurant = () => {
+  const { placeId } = useParams();
   return (
-    <div>
-      <p>Coucou</p>
+    <div className="restaurant-details">
+      <p>The restaurant id is : {placeId} </p>
     </div>
   );
-}
+};
+
+export default Restaurant;

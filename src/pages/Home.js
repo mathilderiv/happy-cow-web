@@ -1,5 +1,6 @@
 import mainImage from "../img/main-image.jpeg";
 import veganImage from "../img/category_vegan.svg";
+import empty from "../img/empty.jpeg";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -9,24 +10,29 @@ import { Link } from "react-router-dom";
 
 //Import JSON
 import restaurants from "../restaurants.json";
-console.log(restaurants);
+// const test = restaurants.sort(function (b, a) {
+//   return a.placeId - b.placeId;
+// });
+// console.log(test);
 
 export default function Home() {
   const displayStars = (num) => {
     const tab = [];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 1; i <= 5; i++) {
       if (i < num) {
         tab.push(
           <FontAwesomeIcon
-            style={{ color: "#FFD700" }}
             icon="fa-solid fa-star"
+            style={{ color: "goldenrod" }}
+            key={i}
           />
         );
       } else {
         tab.push(
           <FontAwesomeIcon
-            style={{ color: "#FFD700" }}
-            icon="fa-thin fa-star"
+            icon="fa-solid fa-star"
+            style={{ color: "grey" }}
+            key={i}
           />
         );
       }
@@ -34,12 +40,10 @@ export default function Home() {
     return tab;
   };
 
-  const cityAndZipCode = () => {};
-
   return (
     <div>
       <div className="top">
-        <img className="main-image" src={mainImage} alt="burger picture" />
+        <img className="main-image" src={mainImage} alt="burger" />
 
         <div className="title">
           <h1>Find Vegan Restaurants Nearby</h1>
@@ -47,7 +51,7 @@ export default function Home() {
         </div>
       </div>
       <div className="container">
-        <div className="category">
+        <div className="category1">
           <h2>Vegan Food Near Me</h2>
           <Link
             to="/all"
@@ -57,69 +61,102 @@ export default function Home() {
               fontSize: "16px",
             }}
           >
-            <p className="see-all">View all ></p>
+            <p className="see-all">View all {">"}</p>
           </Link>
         </div>
         <Link className="restaurant-link" to="/restaurant">
           <div className="main">
             {restaurants.slice(0, 10).map((item) => {
               const adressAndCountry = item.address.split(",");
-              const restaurantDescription = item.description.slice(0, 100);
+              const restaurantDescription = item.description.slice(0, 75);
               return (
-                <>
-                  <div key={item.placeId} className="restaurants-cards">
-                    <div className="icons-picture">
-                      <FontAwesomeIcon
-                        style={{
-                          color: "#ED5450",
-                          border: "1px black solid",
-                          height: "20px",
-                          width: "10px",
-                        }}
-                        icon="fa-thin fa-heart"
-                      />
+                <div key={item.placeId} className="restaurants-cards">
+                  <div className="icons-picture">
+                    <FontAwesomeIcon
+                      className="heart"
+                      style={{
+                        color: "#ED5450",
+
+                        height: "30px",
+                        width: "30px",
+                      }}
+                      icon="heart"
+                    />
+                    <div>
                       <img
                         className="restaurant-picture"
                         src={item.thumbnail}
-                        alt="restaurants-pictures"
+                        alt="restaurants"
                       />
-                    </div>
-                    <div className="restaurants-title">
-                      <img
-                        style={{ height: "15px", marginRight: "3px" }}
-                        src={veganImage}
-                        alt="vegan-picture"
-                      />
-                      <h3>{item.name}</h3>
-                    </div>
-                    <div className="address">
-                      <p
-                        className="city-country"
-                        style={{
-                          color: "#777777",
-                          fontWeight: "bold",
-                          fontSize: "14px",
-                        }}
-                      >
-                        {adressAndCountry[adressAndCountry.length - 3]} ,{" "}
-                        {adressAndCountry[adressAndCountry.length - 1]} ,{" "}
-                        {adressAndCountry[adressAndCountry.length - 2]}
-                      </p>
-
-                      <div className="rating">
-                        <p>{displayStars(item.rating)}</p>
-                        <p>{item.placeId} reviews</p>
-                      </div>
-                      <div className="description">
-                        <p>{restaurantDescription}</p>
-                      </div>
                     </div>
                   </div>
-                </>
+                  <div className="restaurants-title">
+                    <img
+                      style={{ height: "15px", marginRight: "3px" }}
+                      src={veganImage}
+                      alt="vegan"
+                    />
+                    <h3>{item.name}</h3>
+                  </div>
+                  <div className="address">
+                    <p
+                      className="city-country"
+                      style={{
+                        color: "#777777",
+                        fontWeight: "bold",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {adressAndCountry[adressAndCountry.length - 3]} ,{" "}
+                      {adressAndCountry[adressAndCountry.length - 1]} ,{" "}
+                      {adressAndCountry[adressAndCountry.length - 2]}
+                    </p>
+
+                    <div className="rating">
+                      <p>{displayStars(item.rating)}</p>
+                      <p>{item.placeId} reviews</p>
+                    </div>
+                    <div>
+                      <p className="description">{restaurantDescription}...</p>
+                    </div>
+                  </div>
+                </div>
               );
             })}
           </div>
         </Link>
+        <div className="category2">
+          <h2>10 Best Vegan Restaurants in Paris, France</h2>
+          <p className="see-10">View all {">"}</p>
+        </div>
+        <div className="main-10">
+          {restaurants
+            .sort((a, b) => b.rating - a.rating)
+            .slice(0, 10)
+            .map((item, index) => {
+              return (
+                <div className="restaurants-top-cards" key={index}>
+                  <img
+                    className="restaurant-top-picture"
+                    src={item.thumbnail}
+                    alt="restaurants-top"
+                  />
+                  <div className="restaurants-top-title">
+                    <img
+                      style={{ height: "15px", marginRight: "3px" }}
+                      src={veganImage}
+                      alt="vegan"
+                    />
+                    <h3>{item.name}</h3>
+                  </div>
+                  <div className="rating">
+                    <p>{displayStars(item.rating)}</p>
+                    <p>{item.placeId} reviews</p>
+                  </div>
+                </div>
+              );
+            })}
+        </div>
       </div>
     </div>
   );
