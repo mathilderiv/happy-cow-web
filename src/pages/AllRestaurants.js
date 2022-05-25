@@ -9,7 +9,7 @@ export default function AllRestaurants() {
       {restaurants.map((item) => {
         return (
           <>
-            <div>
+            <div className="all-left-part">
               <img src={item.thumbnail} />
               <h3>{item.name}</h3>
               <p>{item.address}</p>

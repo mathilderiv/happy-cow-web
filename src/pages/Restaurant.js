@@ -1,14 +1,14 @@
 import { useLocation } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-//Import package react leaflet
-import {
-  MapContainer,
-  TileLayer,
-  // useMap,
-  Marker,
-  Popup,
-} from "https://cdn.esm.sh/react-leaflet";
+//Import image
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import vegstore from "../img/logo-veg.svg";
+
+//Import css de la map
+import "leaflet/dist/leaflet.css";
+
+// Import package react leaflet
+import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
 
 const Restaurant = () => {
   //Passer les information du restaurant via le LINK
@@ -80,8 +80,8 @@ const Restaurant = () => {
             <div className="main-picture">
               <img
                 style={{
-                  height: "335px",
-                  width: "335px",
+                  height: "100%",
+                  width: "80%",
                   borderRadius: "10px",
                   marginRight: "5px",
                 }}
@@ -126,21 +126,24 @@ const Restaurant = () => {
               </div>
             </div>
             <div className="map">
-              <MapContainer
-                center={[51.505, -0.09]}
-                zoom={13}
-                scrollWheelZoom={false}
-              >
-                <TileLayer
-                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                <Marker position={[51.505, -0.09]}>
-                  <Popup>
-                    A pretty CSS3 popup. <br /> Easily customizable.
-                  </Popup>
-                </Marker>
-              </MapContainer>
+              <div style={{ height: "100%" }} id="map">
+                <MapContainer
+                  style={{ height: "100%" }}
+                  center={[48.856614, 2.3522219]}
+                  zoom={11}
+                  scrollWheelZoom={false}
+                >
+                  <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+                  <Marker position={[item.location.lat, item.location.lng]}>
+                    <Popup>
+                      <img src={vegstore} alt="location-store" />
+                    </Popup>
+                  </Marker>
+                </MapContainer>
+              </div>
             </div>
           </div>
         </div>

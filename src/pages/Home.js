@@ -16,6 +16,9 @@ import restaurants from "../restaurants.json";
 // console.log(test);
 
 export default function Home() {
+  const [inputsearch, setInputsearch] = useState("");
+
+  //DisplayStars
   const displayStars = (num) => {
     const tab = [];
     for (let i = 1; i <= 5; i++) {
@@ -40,6 +43,18 @@ export default function Home() {
     return tab;
   };
 
+  //input search
+  const tab = [];
+  for (let i = 0; i < restaurants.length; i++) {
+    if (restaurants[i].address.indexOf(inputsearch) !== -1) {
+      if (tab.lenght < 20) {
+        tab.push(<p key={restaurants[i].placeId}>{restaurants[i].name}</p>);
+      }
+    } else {
+      break;
+    }
+  }
+
   return (
     <div>
       <div className="top">
@@ -47,7 +62,8 @@ export default function Home() {
 
         <div className="title">
           <h1>Find Vegan Restaurants Nearby</h1>
-          <Input />
+          <Input inputsearch={inputsearch} setInputsearch={setInputsearch} />
+          {tab}
         </div>
       </div>
       <div className="container">

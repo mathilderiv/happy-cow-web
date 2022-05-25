@@ -1,13 +1,17 @@
 import logo from "../img/logo.svg";
 
+import { Link } from "react-router-dom";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = () => {
   return (
     <div className="header">
-      <div className="logo">
-        <img className="logo-happycow" src={logo} alt="HappyCow logo" />
-      </div>
+      <Link to="/">
+        <div className="logo">
+          <img className="logo-happycow" src={logo} alt="HappyCow logo" />
+        </div>
+      </Link>
       <div className="menu">
         <p>Explore</p>
         <p>Forum</p>
@@ -19,7 +23,12 @@ const Header = () => {
       </div>
       <div className="right-part">
         <FontAwesomeIcon
-          style={{ color: "#7b4ec3", fontSize: "28px", marginTop: "10px" }}
+          style={{
+            color: "#7b4ec3",
+            fontSize: "28px",
+            marginTop: "10px",
+            marginRight: "10px",
+          }}
           icon="fa-solid fa-magnifying-glass"
         />
 

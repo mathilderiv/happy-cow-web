@@ -4,17 +4,15 @@ import { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function () {
-  const [inputsearch, setInputsearch] = useState("");
-
+const Input = ({ inputsearch, setInputsearch }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
 
-  const handleChange = (event) => {
-    const value = event.target.value;
-    setInputsearch(value);
-  };
+  // const handleChange = (event) => {
+  //   const value = event.target.value;
+  //   setInputsearch(value);
+  // };
 
   return (
     <div className="search-button">
@@ -25,7 +23,9 @@ export default function () {
           name="search"
           placeholder="Search for city, region, or zipcode"
           value={inputsearch}
-          onChange={handleChange}
+          onChange={(event) => {
+            setInputsearch(event.target.value);
+          }}
         />
 
         <button type="submit" className="submit-button">
@@ -39,4 +39,6 @@ export default function () {
       </form>
     </div>
   );
-}
+};
+
+export default Input;
