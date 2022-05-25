@@ -271,6 +271,12 @@ input::placeholder {
   text-align: center;
 }
 
+.research-tab {
+  width: 500px;
+  height: 500px;
+  border: 1px solid red;
+}
+
 /* PAGE RESTAURANT */
 
 /* .restaurant-details {
@@ -347,8 +353,8 @@ input::placeholder {
 /* MAP */
 
 .map {
-  height: 337px;
-  width: 40%;
+  height: 200px;
+  width: 345px;
   border: black solid 2px;
 }
 /* 

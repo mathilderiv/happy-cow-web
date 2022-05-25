@@ -2,19 +2,26 @@ import { useLocation } from "react-router-dom";
 
 //Import image
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import vegstore from "../img/logo-veg.svg";
+// import vegstore from "../img/logo-veg.svg";
 
 //Import css de la map
 import "leaflet/dist/leaflet.css";
 
 // Import package react leaflet
 import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
+import L from "leaflet";
 
 const Restaurant = () => {
   //Passer les information du restaurant via le LINK
   const location = useLocation();
   const item = location.state; //destructure location.state pour utiliser uniquement item
 
+  //Marker
+  const exempleIcon = new L.Icon({
+    iconUrl: "https://www.happycow.net/img/category/category_vegan.svg?1",
+    iconSize: [30, 30],
+    iconAnchor: [15, 30],
+  });
   //DisplayStars
 
   const displayStars = (num) => {
@@ -130,17 +137,20 @@ const Restaurant = () => {
                 <MapContainer
                   style={{ height: "100%" }}
                   center={[48.856614, 2.3522219]}
-                  zoom={11}
+                  zoom={10}
                   scrollWheelZoom={false}
                 >
                   <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                   />
-                  <Marker position={[item.location.lat, item.location.lng]}>
-                    <Popup>
+                  <Marker
+                    position={[item.location.lat, item.location.lng]}
+                    icon={exempleIcon}
+                  >
+                    {/* <Popup>
                       <img src={vegstore} alt="location-store" />
-                    </Popup>
+                    </Popup> */}
                   </Marker>
                 </MapContainer>
               </div>

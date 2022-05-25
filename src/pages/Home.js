@@ -10,13 +10,10 @@ import { Link } from "react-router-dom";
 
 //Import JSON
 import restaurants from "../restaurants.json";
-// const test = restaurants.sort(function (b, a) {
-//   return a.placeId - b.placeId;
-// });
-// console.log(test);
 
 export default function Home() {
   const [inputsearch, setInputsearch] = useState("");
+  const [showingRestaurants, setShowingRestaurants] = useState(restaurants);
 
   //DisplayStars
   const displayStars = (num) => {
@@ -43,18 +40,6 @@ export default function Home() {
     return tab;
   };
 
-  //input search
-  const tab = [];
-  for (let i = 0; i < restaurants.length; i++) {
-    if (restaurants[i].address.indexOf(inputsearch) !== -1) {
-      if (tab.lenght < 20) {
-        tab.push(<p key={restaurants[i].placeId}>{restaurants[i].name}</p>);
-      }
-    } else {
-      break;
-    }
-  }
-
   return (
     <div>
       <div className="top">
@@ -62,8 +47,12 @@ export default function Home() {
 
         <div className="title">
           <h1>Find Vegan Restaurants Nearby</h1>
-          <Input inputsearch={inputsearch} setInputsearch={setInputsearch} />
-          {tab}
+          <Input
+            inputsearch={inputsearch}
+            setInputsearch={setInputsearch}
+            restaurants={restaurants}
+            setShowingRestaurants={setShowingRestaurants}
+          />
         </div>
       </div>
       <div className="container">
@@ -82,9 +71,10 @@ export default function Home() {
         </div>
 
         <div className="main">
-          {restaurants.slice(0, 10).map((item) => {
+          {showingRestaurants.slice(0, 10).map((item) => {
+            console.log(item.type);
             const adressAndCountry = item.address.split(",");
-            const restaurantDescription = item.description.slice(0, 100);
+            // const restaurantDescription = item.description.slice(0, 100);
             return (
               <Link className="restaurant-link" to={"/restaurant"} state={item}>
                 <div key={item.placeId} className="restaurants-cards">
@@ -134,7 +124,7 @@ export default function Home() {
                       <p>{item.placeId} reviews</p>
                     </div>
                     <div>
-                      <p className="description">{restaurantDescription}...</p>
+                      <p className="description">{item.description}...</p>
                     </div>
                   </div>
                 </div>
