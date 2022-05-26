@@ -8,24 +8,24 @@ export default function Research() {
   const location = useLocation();
   const { inputsearch } = location.state;
 
-  // const handleSubmit = (event) => {
-  //     event.preventDefault();
+  //Pour trier avec redirection
   const tab = [];
   for (let i = 0; i < restaurants.length; i++) {
     // console.log(restaurants[i].address.indexOf(inputsearch));
     if (restaurants[i].address.indexOf(inputsearch) !== -1) {
-      // if (tab.length < 20) {
       tab.push(restaurants[i]);
-      // } else {
-      //   break;
-      // }
     }
   }
 
   return (
     <div>
       {tab.map((item) => {
-        return <div> {item.name}</div>;
+        return (
+          <div>
+            {item.name}
+            <img src={item.thumbnail} />
+          </div>
+        );
       })}
     </div>
   );

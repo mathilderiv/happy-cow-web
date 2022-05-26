@@ -11,7 +11,8 @@ import noimage from "../img/no-image.png";
 
 import DisplayStars from "../Components/DisplayStars";
 
-import IconCondition from "../Components/IconCondition";
+import IconMarker from "../Components/IconMarker";
+// import IconCondition from "../Components/IconCondition";
 
 //Import css de la map
 import "leaflet/dist/leaflet.css";
@@ -29,53 +30,6 @@ const Restaurant = () => {
 
   const exempleIcon = new L.Icon({
     iconUrl: "http://127.0.0.1:5500/src/img/vegstore-category-logo.svg",
-    iconSize: [30, 30],
-    iconAnchor: [15, 30],
-  });
-
-  const vegstoreIcon = new L.Icon({
-    iconUrl: "http://127.0.0.1:5500/src/img/vegstore-category-logo.svg",
-    iconSize: [30, 30],
-    iconAnchor: [15, 30],
-  });
-
-  const veganIcon = new L.Icon({
-    iconUrl: "http://127.0.0.1:5500/src/img/category_vegan.svg",
-    iconSize: [30, 30],
-    iconAnchor: [15, 30],
-  });
-
-  const vegetarianIcon = new L.Icon({
-    iconUrl: "http://127.0.0.1:5500/src/img/vegetatian-logo.svg",
-    iconSize: [30, 30],
-    iconAnchor: [15, 30],
-  });
-
-  const vegOptionsIcon = new L.Icon({
-    iconUrl: "http://127.0.0.1:5500/src/img/veg-options-logo.svg",
-    iconSize: [30, 30],
-    iconAnchor: [15, 30],
-  });
-
-  const iceCreamIcon = new L.Icon({
-    iconUrl: "http://127.0.0.1:5500/src/img/category_ice-cream.svg",
-    iconSize: [30, 30],
-    iconAnchor: [15, 30],
-  });
-
-  const otherIcon = new L.Icon({
-    iconUrl: "http://127.0.0.1:5500/src/img/category_other.svg",
-    iconSize: [30, 30],
-    iconAnchor: [15, 30],
-  });
-
-  const professionnalIcon = new L.Icon({
-    iconUrl: "http://127.0.0.1:5500/src/img/category_vegan-professional.svg",
-    iconSize: [30, 30],
-    iconAnchor: [15, 30],
-  });
-  const healthStoreIcon = new L.Icon({
-    iconUrl: "http://127.0.0.1:5500/src/img/category_health-store.svg",
     iconSize: [30, 30],
     iconAnchor: [15, 30],
   });
@@ -224,8 +178,7 @@ const Restaurant = () => {
                   />
                   <Marker
                     position={[item.location.lat, item.location.lng]}
-                    icon={exempleIcon}
-                    // icon={IconCondition()}
+                    icon={IconMarker(item.type)}
                   >
                     {/* <Popup>
                       <img src={vegstore} alt="location-store" />
