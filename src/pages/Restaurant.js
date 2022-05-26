@@ -9,6 +9,8 @@ import vegoption from "../img/veg-options-logo.svg";
 
 import noimage from "../img/no-image.png";
 
+import DisplayStars from "../Components/DisplayStars";
+
 //Import css de la map
 import "leaflet/dist/leaflet.css";
 
@@ -31,34 +33,6 @@ const Restaurant = () => {
   });
 
   /////////////////////MARKER/////////////////////////////
-
-  /////////////////////DISPLAYSTARS/////////////////////////////
-
-  const displayStars = (num) => {
-    const tab = [];
-    for (let i = 0; i < 5; i++) {
-      if (i < num) {
-        tab.push(
-          <FontAwesomeIcon
-            icon="fa-solid fa-star"
-            style={{ color: "goldenrod" }}
-            key={i}
-          />
-        );
-      } else {
-        tab.push(
-          <FontAwesomeIcon
-            icon="fa-solid fa-star"
-            style={{ color: "grey" }}
-            key={i}
-          />
-        );
-      }
-    }
-    return tab;
-  };
-
-  /////////////////////DISPLAYSTARS/////////////////////////////
 
   return (
     <div className="restaurant-details">
@@ -83,7 +57,7 @@ const Restaurant = () => {
       </div>
       <div className="container">
         <div className="icons-details">
-          <p>{displayStars(item.rating)}</p>
+          <p>{DisplayStars(item.rating)}</p>
           <p>{item.placeId} reviews</p>
         </div>
         <div className="pictures-restaurant">

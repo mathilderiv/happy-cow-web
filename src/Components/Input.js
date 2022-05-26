@@ -1,6 +1,7 @@
 import React from "react";
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -45,15 +46,22 @@ const Input = ({
             setInputsearch(event.target.value);
           }}
         />
-
-        <button type="submit" className="submit-button">
-          <FontAwesomeIcon
-            style={{
-              fontSize: "30px",
-            }}
-            icon="fa-solid fa-magnifying-glass"
-          />
-        </button>
+        <Link
+          to="/research"
+          inputsearch={inputsearch}
+          setInputsearch={setInputsearch}
+          restaurants={restaurants}
+          setShowingRestaurants={setShowingRestaurants}
+        >
+          <button type="submit" className="submit-button">
+            <FontAwesomeIcon
+              style={{
+                fontSize: "30px",
+              }}
+              icon="fa-solid fa-magnifying-glass"
+            />
+          </button>
+        </Link>
       </form>
     </div>
   );

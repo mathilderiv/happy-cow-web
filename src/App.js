@@ -7,6 +7,7 @@ import Footer from "./Components/Footer";
 import Home from "./pages/Home";
 import AllRestaurants from "./pages/AllRestaurants";
 import Restaurant from "./pages/Restaurant";
+import Research from "./pages/Research";
 
 //////////////////////FontAwesome/////////////////////////////////
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -50,6 +51,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/all" element={<AllRestaurants />} />
           <Route path="/restaurant" element={<Restaurant />} />
+          <Route path="/research" element={<Research />} />
         </Routes>
         <Footer />
       </Router>

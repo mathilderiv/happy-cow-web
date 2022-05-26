@@ -29,6 +29,7 @@ export default function Home() {
 
         <div className="title">
           <h1>Find Vegan Restaurants Nearby</h1>
+
           <Input
             inputsearch={inputsearch}
             setInputsearch={setInputsearch}
