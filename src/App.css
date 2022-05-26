@@ -1,5 +1,7 @@
 /* COMMON RULES */
-
+body {
+  font-family: "Nunito", sans-serif;
+}
 /* HEADER */
 
 .header {
@@ -18,7 +20,7 @@
 
 .menu {
   display: flex;
-  width: 40%;
+  width: 50%;
   margin-left: 2rem;
   margin-top: 2rem;
 }

@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import AllRestaurants from "./pages/AllRestaurants";
 import Restaurant from "./pages/Restaurant";
 
-//FontAwesome
+//////////////////////FontAwesome/////////////////////////////////
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faMagnifyingGlass,
@@ -19,6 +19,10 @@ import {
   faPlaneDeparture,
   faBookmark,
   faHouse,
+  faIceCream,
+  faLeaf,
+  faStore,
+  faCircleChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -29,8 +33,13 @@ library.add(
   faArrowUpFromBracket,
   faPlaneDeparture,
   faBookmark,
-  faHouse
+  faHouse,
+  faIceCream,
+  faLeaf,
+  faStore,
+  faCircleChevronDown
 );
+//////////////////////FontAwesome/////////////////////////////////
 
 function App() {
   return (

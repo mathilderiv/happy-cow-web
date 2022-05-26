@@ -2,7 +2,12 @@ import { useLocation } from "react-router-dom";
 
 //Import image
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import vegstore from "../img/logo-veg.svg";
+import veganImage from "../img/category_vegan.svg";
+import vegstore from "../img/vegstore-category-logo.svg";
+import vegetarian from "../img/vegetatian-logo.svg";
+import vegoption from "../img/veg-options-logo.svg";
+
+import noimage from "../img/no-image.png";
 
 //Import css de la map
 import "leaflet/dist/leaflet.css";
@@ -16,13 +21,18 @@ const Restaurant = () => {
   const location = useLocation();
   const item = location.state; //destructure location.state pour utiliser uniquement item
 
-  //Marker
+  /////////////////////MARKER/////////////////////////////
+
+  // const markerCondition =
   const exempleIcon = new L.Icon({
     iconUrl: "https://www.happycow.net/img/category/category_vegan.svg?1",
     iconSize: [30, 30],
     iconAnchor: [15, 30],
   });
-  //DisplayStars
+
+  /////////////////////MARKER/////////////////////////////
+
+  /////////////////////DISPLAYSTARS/////////////////////////////
 
   const displayStars = (num) => {
     const tab = [];
@@ -47,6 +57,8 @@ const Restaurant = () => {
     }
     return tab;
   };
+
+  /////////////////////DISPLAYSTARS/////////////////////////////
 
   return (
     <div className="restaurant-details">
@@ -97,39 +109,83 @@ const Restaurant = () => {
               />
             </div>
             <div className="right-pictures">
-              <img
-                style={{
-                  height: "160px",
-                  width: "160px",
-                  borderRadius: "10px",
-                  marginRight: "5px",
-                  objectFit: "cover",
-                }}
-                src={item.pictures[1]}
-                alt=""
-              />
-              <img
-                style={{
-                  height: "160px",
-                  width: "160px",
-                  borderRadius: "10px",
-                  objectFit: "cover",
-                }}
-                src={item.pictures[2]}
-                alt=""
-              />
-              <div className="last-picture">
+              {item.pictures[1] ? (
                 <img
                   style={{
                     height: "160px",
                     width: "160px",
                     borderRadius: "10px",
-                    marginTop: "5px",
+                    marginRight: "5px",
                     objectFit: "cover",
                   }}
-                  src={item.pictures[3]}
+                  src={item.pictures[1]}
                   alt=""
                 />
+              ) : (
+                <img
+                  style={{
+                    height: "160px",
+                    width: "160px",
+                    borderRadius: "10px",
+                    marginRight: "5px",
+                    objectFit: "cover",
+                  }}
+                  src={noimage}
+                  alt="nopicture"
+                />
+              )}
+
+              {item.pictures[2] ? (
+                <img
+                  style={{
+                    height: "160px",
+                    width: "160px",
+                    borderRadius: "10px",
+                    marginRight: "5px",
+                    objectFit: "cover",
+                  }}
+                  src={item.pictures[2]}
+                  alt=""
+                />
+              ) : (
+                <img
+                  style={{
+                    height: "160px",
+                    width: "160px",
+                    borderRadius: "10px",
+                    marginRight: "5px",
+                    objectFit: "cover",
+                  }}
+                  src={noimage}
+                  alt="nopicture"
+                />
+              )}
+              <div className="last-picture">
+                {item.pictures[3] ? (
+                  <img
+                    style={{
+                      height: "160px",
+                      width: "160px",
+                      borderRadius: "10px",
+                      marginRight: "5px",
+                      objectFit: "cover",
+                    }}
+                    src={item.pictures[3]}
+                    alt=""
+                  />
+                ) : (
+                  <img
+                    style={{
+                      height: "160px",
+                      width: "160px",
+                      borderRadius: "10px",
+                      marginRight: "5px",
+                      objectFit: "cover",
+                    }}
+                    src={noimage}
+                    alt="nopicture"
+                  />
+                )}
               </div>
             </div>
             <div className="map">

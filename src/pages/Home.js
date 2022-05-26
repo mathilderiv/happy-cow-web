@@ -1,5 +1,10 @@
 import mainImage from "../img/main-image.jpeg";
 import veganImage from "../img/category_vegan.svg";
+import vegstore from "../img/vegstore-category-logo.svg";
+import vegetarian from "../img/vegetatian-logo.svg";
+import vegoption from "../img/veg-options-logo.svg";
+import happycowempty from "../img/happycow-empty.jpeg";
+
 import empty from "../img/empty.jpeg";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,7 +20,7 @@ export default function Home() {
   const [inputsearch, setInputsearch] = useState("");
   const [showingRestaurants, setShowingRestaurants] = useState(restaurants);
 
-  //DisplayStars
+  ///////////////////// DISPLAY STARS /////////////////////////////
   const displayStars = (num) => {
     const tab = [];
     for (let i = 1; i <= 5; i++) {
@@ -39,6 +44,83 @@ export default function Home() {
     }
     return tab;
   };
+
+  ///////////////////// DISPLAY STARS /////////////////////////////
+
+  ///////////////////// ICON CONDITION /////////////////////////////
+
+  const iconCondition = (type) => {
+    if (type === "Veg Store") {
+      return (
+        <img
+          style={{ height: "15px", marginRight: "5px" }}
+          src={vegstore}
+          alt="vegstore-logo"
+        />
+      );
+    }
+    if (type === "vegan") {
+      return (
+        <img
+          style={{ height: "15px", marginRight: "5px" }}
+          src={veganImage}
+          alt="vegan-logo"
+        />
+      );
+    }
+    if (type === "vegetarian") {
+      return (
+        <img
+          style={{ height: "15px", marginRight: "5px" }}
+          src={vegetarian}
+          alt="vegetarian-logo"
+        />
+      );
+    }
+    if (type === "veg-options") {
+      return (
+        <img
+          style={{ height: "15px", marginRight: "5px" }}
+          src={vegoption}
+          alt=""
+        />
+      );
+    }
+    if (type === "Ice Cream") {
+      return (
+        <FontAwesomeIcon
+          style={{ height: "15px", marginRight: "5px", color: "#ED5451" }}
+          icon="fa-solid fa-ice-cream"
+        />
+      );
+    }
+    if (type === "Other") {
+      return (
+        <FontAwesomeIcon
+          style={{ height: "15px", marginRight: "5px", color: "#265490" }}
+          icon="fa-solid fa-leaf"
+        />
+      );
+    }
+    if (type === "Health Store") {
+      return (
+        <FontAwesomeIcon
+          style={{ height: "15px", marginRight: "5px", color: "#E0C966" }}
+          icon="fa-solid fa-store"
+        />
+      );
+    }
+    if (type === "Professional") {
+      return (
+        <FontAwesomeIcon
+          style={{ height: "15px", marginRight: "3px", color: "#006739" }}
+          icon="fa-solid fa-circle-chevron-down"
+        />
+      );
+    }
+  };
+
+  ///////////////////// ICON CONDITIONS /////////////////////////////
 
   return (
     <div>
@@ -89,20 +171,20 @@ export default function Home() {
                       }}
                       icon="heart"
                     />
-                    <div>
-                      <img
-                        className="restaurant-picture"
-                        src={item.thumbnail}
-                        alt="restaurants"
-                      />
+                    <div className="pictures-condition">
+                      {item.thumbnail ? (
+                        <img
+                          className="restaurant-picture"
+                          src={item.thumbnail}
+                          alt="restaurants"
+                        />
+                      ) : (
+                        <img src={happycowempty} alt="happycow" />
+                      )}
                     </div>
                   </div>
                   <div className="restaurants-title">
-                    <img
-                      style={{ height: "15px", marginRight: "3px" }}
-                      src={veganImage}
-                      alt="vegan"
-                    />
+                    <p>{iconCondition(item.type)}</p>
                     <h3>{item.name}</h3>
                   </div>
                   <div className="address">
@@ -123,8 +205,12 @@ export default function Home() {
                       <p>{displayStars(item.rating)}</p>
                       <p>{item.placeId} reviews</p>
                     </div>
-                    <div>
-                      <p className="description">{item.description}...</p>
+                    <div className="description">
+                      {item.description ? (
+                        <p>{item.description.slice(0, 100)}...</p>
+                      ) : (
+                        <p>En cours d'écriture...</p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -150,11 +236,7 @@ export default function Home() {
                     alt="restaurants-top"
                   />
                   <div className="restaurants-top-title">
-                    <img
-                      style={{ height: "15px", marginRight: "3px" }}
-                      src={veganImage}
-                      alt="vegan"
-                    />
+                    <p className="iconCondition">{iconCondition(item.type)}</p>
                     <h3>{item.name}</h3>
                   </div>
                   <div className="rating">
