@@ -28,11 +28,6 @@ const Input = ({
     setShowingRestaurants(tab);
   };
 
-  // const handleChange = (event) => {
-  //   const value = event.target.value;
-  //   setInputsearch(value);
-  // };
-
   return (
     <div className="search-button">
       <form className="form" onSubmit={handleSubmit}>
@@ -46,13 +41,7 @@ const Input = ({
             setInputsearch(event.target.value);
           }}
         />
-        <Link
-          to="/research"
-          inputsearch={inputsearch}
-          setInputsearch={setInputsearch}
-          restaurants={restaurants}
-          setShowingRestaurants={setShowingRestaurants}
-        >
+        <Link to="/research" state={{ inputsearch }}>
           <button type="submit" className="submit-button">
             <FontAwesomeIcon
               style={{

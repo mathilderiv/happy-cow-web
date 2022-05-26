@@ -1,7 +1,7 @@
 import Header from "../Components/Header";
 
 import restaurants from "../restaurants.json";
-console.log(restaurants);
+// console.log(restaurants);
 
 export default function AllRestaurants() {
   return (

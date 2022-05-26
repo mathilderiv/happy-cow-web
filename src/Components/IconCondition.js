@@ -2,16 +2,10 @@ import veganImage from "../img/category_vegan.svg";
 import vegstore from "../img/vegstore-category-logo.svg";
 import vegetarian from "../img/vegetatian-logo.svg";
 import vegoption from "../img/veg-options-logo.svg";
-
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faStore,
-  faLeaf,
-  faIceCream,
-  faCircleChevronDown,
-} from "@fortawesome/free-solid-svg-icons";
-library.add(faStore, faLeaf, faIceCream, faCircleChevronDown);
+import icecream from "../img/category_ice-cream.svg";
+import other from "../img/category_other.svg";
+import professional from "../img/category_vegan-professional.svg";
+import healthstore from "../img/category_health-store.svg";
 
 const IconCondition = (type) => {
   if (type === "Veg Store") {
@@ -52,33 +46,37 @@ const IconCondition = (type) => {
   }
   if (type === "Ice Cream") {
     return (
-      <FontAwesomeIcon
-        style={{ height: "15px", marginRight: "5px", color: "#ED5451" }}
-        icon="fa-solid fa-ice-cream"
+      <img
+        style={{ height: "15px", marginRight: "5px" }}
+        src={icecream}
+        alt="ice-cream logo"
       />
     );
   }
   if (type === "Other") {
     return (
-      <FontAwesomeIcon
-        style={{ height: "15px", marginRight: "5px", color: "#265490" }}
-        icon="fa-solid fa-leaf"
+      <img
+        style={{ height: "15px", marginRight: "5px" }}
+        src={other}
+        alt="other logo"
       />
     );
   }
   if (type === "Health Store") {
     return (
-      <FontAwesomeIcon
-        style={{ height: "15px", marginRight: "5px", color: "#E0C966" }}
-        icon="fa-solid fa-store"
+      <img
+        style={{ height: "15px", marginRight: "5px" }}
+        src={healthstore}
+        alt="healthstore logo"
       />
     );
   }
   if (type === "Professional") {
     return (
-      <FontAwesomeIcon
-        style={{ height: "15px", marginRight: "3px", color: "#006739" }}
-        icon="fa-solid fa-circle-chevron-down"
+      <img
+        style={{ height: "15px", marginRight: "5px" }}
+        src={professional}
+        alt="ice-cream logo"
       />
     );
   }
