@@ -15,48 +15,48 @@ import L from "leaflet";
 
 export default function IconMarker(type) {
   const vegstoreIcon = new L.Icon({
-    iconUrl: "http://127.0.0.1:5500/src/img/vegstore-category-logo.svg",
+    iconUrl: vegstore,
     iconSize: [30, 30],
     iconAnchor: [15, 30],
   });
 
   const veganIcon = new L.Icon({
-    iconUrl: "http://127.0.0.1:5500/src/img/category_vegan.svg",
+    iconUrl: veganImage,
     iconSize: [30, 30],
     iconAnchor: [15, 30],
   });
 
   const vegetarianIcon = new L.Icon({
-    iconUrl: "http://127.0.0.1:5500/src/img/vegetatian-logo.svg",
+    iconUrl: vegetarian,
     iconSize: [30, 30],
     iconAnchor: [15, 30],
   });
 
   const vegOptionsIcon = new L.Icon({
-    iconUrl: "http://127.0.0.1:5500/src/img/veg-options-logo.svg",
+    iconUrl: vegoption,
     iconSize: [30, 30],
     iconAnchor: [15, 30],
   });
 
   const iceCreamIcon = new L.Icon({
-    iconUrl: "http://127.0.0.1:5500/src/img/category_ice-cream.svg",
+    iconUrl: icecream,
     iconSize: [30, 30],
     iconAnchor: [15, 30],
   });
 
   const otherIcon = new L.Icon({
-    iconUrl: "http://127.0.0.1:5500/src/img/category_other.svg",
+    iconUrl: other,
     iconSize: [30, 30],
     iconAnchor: [15, 30],
   });
 
   const professionnalIcon = new L.Icon({
-    iconUrl: "http://127.0.0.1:5500/src/img/category_vegan-professional.svg",
+    iconUrl: professional,
     iconSize: [30, 30],
     iconAnchor: [15, 30],
   });
   const healthStoreIcon = new L.Icon({
-    iconUrl: "http://127.0.0.1:5500/src/img/category_health-store.svg",
+    iconUrl: healthstore,
     iconSize: [30, 30],
     iconAnchor: [15, 30],
   });
@@ -75,7 +75,7 @@ export default function IconMarker(type) {
     return otherIcon;
   } else if (type === "Health Store") {
     return healthStoreIcon;
-  } else if (type === "HProfessionnal") {
+  } else if (type === "Professionnal") {
     return professionnalIcon;
   }
 }

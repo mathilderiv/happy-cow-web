@@ -9,8 +9,10 @@ import vegoption from "../img/veg-options-logo.svg";
 
 import noimage from "../img/no-image.png";
 
-import DisplayStars from "../Components/DisplayStars";
+//Import Component
 
+import DisplayStars from "../Components/DisplayStars";
+// import TitleCondition from "../assets/TitleCondition";
 import IconMarker from "../Components/IconMarker";
 // import IconCondition from "../Components/IconCondition";
 
@@ -26,21 +28,13 @@ const Restaurant = () => {
   const location = useLocation();
   const item = location.state; //destructure location.state pour utiliser uniquement item
 
-  /////////////////////MARKER/////////////////////////////
-
-  const exempleIcon = new L.Icon({
-    iconUrl: "http://127.0.0.1:5500/src/img/vegstore-category-logo.svg",
-    iconSize: [30, 30],
-    iconAnchor: [15, 30],
-  });
-
-  /////////////////////MARKER/////////////////////////////
-
   return (
     <div className="restaurant-details">
       <div className="details-title">
         <div className="left-details">
-          <h2 style={{ color: "white", marginTop: "25px" }}>{item.name}</h2>
+          <div>
+            <h2 style={{ color: "white", marginTop: "25px" }}>{item.name}</h2>
+          </div>
         </div>
         <div className="right-details">
           <FontAwesomeIcon

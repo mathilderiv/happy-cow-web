@@ -7,16 +7,15 @@ import happycowempty from "../img/happycow-empty.jpeg";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+//Import JSON
+import restaurants from "../restaurants.json";
+
 //Import component
 import Input from "../Components/Input";
 import DisplayStars from "../Components/DisplayStars";
-import IconCondition from "../Components/IconCondition";
-
+import IconCondition from "../assets/IconCondition";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
-//Import JSON
-import restaurants from "../restaurants.json";
 
 export default function Home() {
   const [inputsearch, setInputsearch] = useState("");
@@ -40,7 +39,7 @@ export default function Home() {
       </div>
       <div className="container">
         <div className="category1">
-          <h2>Vegan Food Near Me</h2>
+          <h2>All Vegan Food</h2>
           <Link
             to="/all"
             style={{

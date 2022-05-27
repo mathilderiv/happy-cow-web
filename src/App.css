@@ -459,3 +459,23 @@ FOOTER */
   margin-right: 1rem;
   margin-top: 1rem;
 }
+
+/* PAGE RESEARCH */
+
+.global-map {
+  height: 200px;
+  width: 345px;
+  border: black solid 2px;
+}
+
+.tab-map {
+  border: solid purple 1px;
+  height: 100%;
+  width: 50%;
+}
+
+/* .one-restaurant {
+  border: solid purple 1px;
+  height: 100%;
+  width: 50%;
+} */
