@@ -11,7 +11,7 @@ const IconCondition = (type) => {
   if (type === "Veg Store") {
     return (
       <img
-        style={{ height: "15px", marginRight: "5px" }}
+        style={{ height: "20px", marginRight: "5px" }}
         src={vegstore}
         alt="vegstore-logo"
       />
@@ -20,7 +20,7 @@ const IconCondition = (type) => {
   if (type === "vegan") {
     return (
       <img
-        style={{ height: "15px", marginRight: "5px" }}
+        style={{ height: "20px", marginRight: "5px" }}
         src={veganImage}
         alt="vegan-logo"
       />
@@ -29,7 +29,7 @@ const IconCondition = (type) => {
   if (type === "vegetarian") {
     return (
       <img
-        style={{ height: "15px", marginRight: "5px" }}
+        style={{ height: "20px", marginRight: "5px" }}
         src={vegetarian}
         alt="vegetarian-logo"
       />
@@ -38,7 +38,7 @@ const IconCondition = (type) => {
   if (type === "veg-options") {
     return (
       <img
-        style={{ height: "15px", marginRight: "5px" }}
+        style={{ height: "20px", marginRight: "5px" }}
         src={vegoption}
         alt=""
       />
@@ -47,7 +47,7 @@ const IconCondition = (type) => {
   if (type === "Ice Cream") {
     return (
       <img
-        style={{ height: "15px", marginRight: "5px" }}
+        style={{ height: "20px", marginRight: "5px" }}
         src={icecream}
         alt="ice-cream logo"
       />
@@ -56,7 +56,7 @@ const IconCondition = (type) => {
   if (type === "Other") {
     return (
       <img
-        style={{ height: "15px", marginRight: "5px" }}
+        style={{ height: "20px", marginRight: "5px" }}
         src={other}
         alt="other logo"
       />
@@ -65,7 +65,7 @@ const IconCondition = (type) => {
   if (type === "Health Store") {
     return (
       <img
-        style={{ height: "15px", marginRight: "5px" }}
+        style={{ height: "20px", marginRight: "5px" }}
         src={healthstore}
         alt="healthstore logo"
       />
@@ -74,7 +74,7 @@ const IconCondition = (type) => {
   if (type === "Professional") {
     return (
       <img
-        style={{ height: "15px", marginRight: "5px" }}
+        style={{ height: "20px", marginRight: "5px" }}
         src={professional}
         alt="ice-cream logo"
       />

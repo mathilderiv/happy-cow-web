@@ -1,8 +1,8 @@
 //Import JSON
 import restaurants from "../restaurants.json";
 
-const TitleCondition = (type) => {
-  if (type.name === "Veg Store") {
+export default function TitleCondition(type) {
+  if (type === "Veg Store") {
     return (
       <div>
         <h2
@@ -11,11 +11,12 @@ const TitleCondition = (type) => {
             color: "white",
             marginTop: "25px",
           }}
-        ></h2>
+        >
+          {type.name}
+        </h2>
       </div>
     );
-  }
-  if (type.name === "vegetarian") {
+  } else if (type === "vegetarian") {
     return (
       <div>
         <h2
@@ -29,9 +30,7 @@ const TitleCondition = (type) => {
         </h2>
       </div>
     );
-  }
-
-  if (type.name === "veg-options") {
+  } else if (type === "veg-options") {
     return (
       <div>
         <h2
@@ -45,9 +44,7 @@ const TitleCondition = (type) => {
         </h2>
       </div>
     );
-  }
-
-  if (type.name === "Ice Cream") {
+  } else if (type === "Ice Cream") {
     return (
       <div>
         <h2
@@ -61,9 +58,7 @@ const TitleCondition = (type) => {
         </h2>
       </div>
     );
-  }
-
-  if (type.name === "Other") {
+  } else if (type === "Other") {
     return (
       <div>
         <h2
@@ -77,9 +72,7 @@ const TitleCondition = (type) => {
         </h2>
       </div>
     );
-  }
-
-  if (type.name === "Health Store") {
+  } else if (type === "Health Store") {
     return (
       <div>
         <h2
@@ -93,9 +86,7 @@ const TitleCondition = (type) => {
         </h2>
       </div>
     );
-  }
-
-  if (type.name === "Professionnal") {
+  } else if (type === "Professionnal") {
     return (
       <div>
         <h2
@@ -109,6 +100,19 @@ const TitleCondition = (type) => {
         </h2>
       </div>
     );
+  } else {
+    return (
+      <div>
+        <h2
+          style={{
+            backgroundColor: "#4D57A7",
+            color: "white",
+            marginTop: "25px",
+          }}
+        >
+          {type.name}
+        </h2>
+      </div>
+    );
   }
-};
-export default TitleCondition;
+}

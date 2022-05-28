@@ -6,6 +6,7 @@ import icecream from "../img/category_ice-cream.svg";
 import other from "../img/category_other.svg";
 import professional from "../img/category_vegan-professional.svg";
 import healthstore from "../img/category_health-store.svg";
+import rest from "../img/rest_icon.svg";
 
 //Import JSON
 import restaurants from "../restaurants.json";
@@ -61,6 +62,12 @@ export default function IconMarker(type) {
     iconAnchor: [15, 30],
   });
 
+  const restIcon = new L.Icon({
+    iconUrl: rest,
+    iconSize: [30, 30],
+    iconAnchor: [15, 30],
+  });
+
   if (type === "Veg Store") {
     return vegstoreIcon;
   } else if (type === "vegan") {
@@ -77,5 +84,7 @@ export default function IconMarker(type) {
     return healthStoreIcon;
   } else if (type === "Professionnal") {
     return professionnalIcon;
+  } else {
+    return restIcon;
   }
 }

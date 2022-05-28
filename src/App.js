@@ -24,6 +24,10 @@ import {
   faLeaf,
   faStore,
   faCircleChevronDown,
+  faPhone,
+  faLocationDot,
+  faPen,
+  faCamera,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -38,7 +42,11 @@ library.add(
   faIceCream,
   faLeaf,
   faStore,
-  faCircleChevronDown
+  faCircleChevronDown,
+  faPhone,
+  faLocationDot,
+  faPen,
+  faCamera
 );
 //////////////////////FontAwesome/////////////////////////////////
 
@@ -49,7 +57,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/all" element={<AllRestaurants />} />
+          <Route path="/allRestaurants" element={<AllRestaurants />} />
           <Route path="/restaurant" element={<Restaurant />} />
           <Route path="/research" element={<Research />} />
         </Routes>

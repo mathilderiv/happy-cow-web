@@ -41,7 +41,7 @@ export default function Home() {
         <div className="category1">
           <h2>All Vegan Food</h2>
           <Link
-            to="/all"
+            to="/allRestaurants"
             style={{
               textDecoration: "none",
               fontWeight: "bold",
@@ -125,33 +125,42 @@ export default function Home() {
           <h2>10 Best Vegan Restaurants in Paris, France</h2>
           <p className="see-10">View all {">"}</p>
         </div>
+
         <div className="main-10">
           {restaurants
             .sort((a, b) => b.rating - a.rating)
             .slice(0, 10)
             .map((item, index) => {
               return (
-                <div className="restaurants-top-cards" key={index}>
-                  <div className="pictures-condition">
-                    {item.thumbnail ? (
-                      <img
-                        className="restaurant-top-picture"
-                        src={item.thumbnail}
-                        alt="restaurants"
-                      />
-                    ) : (
-                      <img src={happycowempty} alt="happycow" />
-                    )}
+                <Link
+                  className="restaurant-link"
+                  to={"/restaurant"}
+                  state={item}
+                >
+                  <div className="restaurants-top-cards" key={index}>
+                    <div className="pictures-condition">
+                      {item.thumbnail ? (
+                        <img
+                          className="restaurant-top-picture"
+                          src={item.thumbnail}
+                          alt="restaurants"
+                        />
+                      ) : (
+                        <img src={happycowempty} alt="happycow" />
+                      )}
+                    </div>
+                    <div className="restaurants-top-title">
+                      <p className="iconCondition">
+                        {IconCondition(item.type)}
+                      </p>
+                      <h3>{item.name}</h3>
+                    </div>
+                    <div className="rating">
+                      <p>{DisplayStars(item.rating)}</p>
+                      <p>{item.placeId} reviews</p>
+                    </div>
                   </div>
-                  <div className="restaurants-top-title">
-                    <p className="iconCondition">{IconCondition(item.type)}</p>
-                    <h3>{item.name}</h3>
-                  </div>
-                  <div className="rating">
-                    <p>{DisplayStars(item.rating)}</p>
-                    <p>{item.placeId} reviews</p>
-                  </div>
-                </div>
+                </Link>
               );
             })}
         </div>

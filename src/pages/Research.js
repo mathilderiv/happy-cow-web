@@ -21,7 +21,11 @@ export default function Research() {
   const tab = [];
   for (let i = 0; i < restaurants.length; i++) {
     // console.log(restaurants[i].address.indexOf(inputsearch));
-    if (restaurants[i].address.indexOf(inputsearch) !== -1) {
+    if (
+      restaurants[i].address
+        .toLowerCase()
+        .indexOf(inputsearch.toLowerCase()) !== -1
+    ) {
       tab.push(restaurants[i]);
     }
   }
@@ -32,7 +36,7 @@ export default function Research() {
         <MapContainer
           style={{ height: "100%" }}
           center={[48.856614, 2.3522219]}
-          zoom={11}
+          zoom={12}
           scrollWheelZoom={false}
         >
           <TileLayer
@@ -41,25 +45,29 @@ export default function Research() {
           />
 
           <div className="tab-map">
-            {tab.map((item) => {
+            {tab.map((item, index) => {
               return (
-                <div className="list-of-restaurants">
+                <div key={index} className="list-of-restaurants">
                   <Marker
                     position={[item.location.lat, item.location.lng]}
                     icon={IconMarker(item.type)}
                   ></Marker>
-                  <div className="one-restaurant">
-                    <p>{item.name}</p>
-                    <img
-                      style={{ height: "300px", width: "300px" }}
-                      src={item.thumbnail}
-                    />
-                  </div>
                 </div>
               );
             })}
           </div>
         </MapContainer>
+        {tab.map((item) => {
+          return (
+            <div key={item.placeId} className="one-restaurant">
+              <p>{item.name}</p>
+              <img
+                style={{ height: "300px", width: "300px" }}
+                src={item.thumbnail}
+              />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
