@@ -132,34 +132,28 @@ export default function Home() {
             .slice(0, 10)
             .map((item, index) => {
               return (
-                <Link
-                  className="restaurant-link"
-                  to={"/restaurant"}
-                  state={item}
-                >
-                  <div className="restaurants-top-cards" key={index}>
-                    <div className="pictures-condition">
-                      {item.thumbnail ? (
-                        <img
-                          className="restaurant-top-picture"
-                          src={item.thumbnail}
-                          alt="restaurants"
-                        />
-                      ) : (
-                        <img src={happycowempty} alt="happycow" />
-                      )}
-                    </div>
-                    <div className="restaurants-top-title">
-                      <p className="iconCondition">
-                        {IconCondition(item.type)}
-                      </p>
-                      <h3>{item.name}</h3>
-                    </div>
-                    <div className="rating">
-                      <p>{DisplayStars(item.rating)}</p>
-                      <p>{item.placeId} reviews</p>
-                    </div>
+                <Link className="best-link" to={"/restaurant"} state={item}>
+                  {/* <div className="restaurants-top-cards" key={index}> */}
+                  <div className="pictures-condition">
+                    {item.thumbnail ? (
+                      <img
+                        className="restaurant-top-picture"
+                        src={item.thumbnail}
+                        alt="restaurants"
+                      />
+                    ) : (
+                      <img src={happycowempty} alt="happycow" />
+                    )}
                   </div>
+                  <div className="restaurants-top-title">
+                    <p className="iconCondition">{IconCondition(item.type)}</p>
+                    <h3>{item.name}</h3>
+                  </div>
+                  <div className="rating-top">
+                    <p>{DisplayStars(item.rating)}</p>
+                    <p>{item.placeId} reviews</p>
+                  </div>
+                  {/* </div> */}
                 </Link>
               );
             })}

@@ -121,7 +121,7 @@ const Restaurant = () => {
                 {item.pictures[1] ? (
                   <img
                     style={{
-                      height: "160px",
+                      height: "162px",
                       width: "160px",
                       borderRadius: "10px",
                       marginRight: "5px",
@@ -133,7 +133,7 @@ const Restaurant = () => {
                 ) : (
                   <img
                     style={{
-                      height: "160px",
+                      height: "162px",
                       width: "160px",
                       borderRadius: "10px",
                       marginRight: "5px",
@@ -147,7 +147,7 @@ const Restaurant = () => {
                 {item.pictures[2] ? (
                   <img
                     style={{
-                      height: "160px",
+                      height: "162px",
                       width: "160px",
                       borderRadius: "10px",
                       marginRight: "5px",
@@ -159,7 +159,7 @@ const Restaurant = () => {
                 ) : (
                   <img
                     style={{
-                      height: "160px",
+                      height: "162px",
                       width: "160px",
                       borderRadius: "10px",
                       marginRight: "5px",
@@ -173,7 +173,7 @@ const Restaurant = () => {
                   {item.pictures[3] ? (
                     <img
                       style={{
-                        height: "160px",
+                        height: "162px",
                         width: "160px",
                         borderRadius: "10px",
                         marginRight: "5px",
@@ -185,7 +185,7 @@ const Restaurant = () => {
                   ) : (
                     <img
                       style={{
-                        height: "160px",
+                        height: "162px",
                         width: "160px",
                         borderRadius: "10px",
                         marginRight: "5px",
@@ -199,7 +199,7 @@ const Restaurant = () => {
                   {item.pictures[4] ? (
                     <img
                       style={{
-                        height: "160px",
+                        height: "162px",
                         width: "160px",
                         borderRadius: "10px",
                         marginRight: "5px",
@@ -211,7 +211,7 @@ const Restaurant = () => {
                   ) : (
                     <img
                       style={{
-                        height: "160px",
+                        height: "162px",
                         width: "160px",
                         borderRadius: "10px",
                         marginRight: "5px",
