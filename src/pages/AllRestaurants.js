@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
-import ReactPaginate from "react-paginate";
+import { useLocation } from "react-router-dom";
 
 import IconMarker from "../Components/IconMarker";
 import DisplayStars from "../Components/DisplayStars";
@@ -26,6 +25,24 @@ export default function AllRestaurants() {
   const [page, setPage] = useState(1);
   const [skip, setSkip] = useState(0);
 
+  // pour trier sur la page home
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const tab = [];
+    for (let i = 0; i < restaurants.length; i++) {
+      // console.log(restaurants[i].address.indexOf(inputsearch));
+      if (
+        restaurants[i].address
+          .toLowerCase()
+          .indexOf(inputsearch.toLowerCase()) !== -1
+      ) {
+        tab.push(restaurants[i]);
+      }
+    }
+    setShowingRestaurants(tab);
+  };
+
   return (
     <div className="all-the-page">
       <div className="map-all">
@@ -36,84 +53,98 @@ export default function AllRestaurants() {
             restaurants={restaurants}
             setShowingRestaurants={setShowingRestaurants}
           />
+
           <div className="setPage">
             {page !== 1 && (
               <button
                 className="page-minus"
                 onClick={() => {
                   setPage(page - 1);
-                  setSkip(skip - 50);
+                  setSkip((page - 2) * 50);
                 }}
               >
                 Page précédente
               </button>
             )}
-            {skip + 50 < 1493 && (
-              <button
-                className="page-add"
-                onClick={() => {
-                  setPage(page + 1);
-                  setSkip(skip + 50);
-                }}
-              >
-                Page suivante
-              </button>
-            )}
+
+            <button
+              className="page-add"
+              onClick={() => {
+                setPage(page + 1);
+                setSkip(page * 50);
+              }}
+            >
+              Page suivante
+            </button>
           </div>
         </div>
-        {restaurants.map((item) => {
-          return (
-            <>
-              <div key={item.placeId} className="all-left-part">
-                <img
-                  className="image"
-                  style={{ width: "100%", height: "60%", objectFit: "cover" }}
-                  src={item.thumbnail}
-                  alt="restaurants"
-                />
 
-                <div className="hover">
-                  <div className="text">
-                    <p className="iconCondition">
-                      {IconConditionAll(item.type)}
-                    </p>
-                    <p style={{ fontWeight: "bold" }}>{item.name}</p>
-                    <br />
-                    {item.address}
-                  </div>
-                </div>
-                <h3
-                  style={{
-                    marginTop: "5px",
-                    marginBottom: "10px",
-                    fontSize: "10px",
-                    color: "#444444",
-                    fontWeight: "bold",
-                    margin: "none",
-                  }}
-                >
-                  {item.name.toUpperCase()}
-                </h3>
-
-                <div style={{}} className="stars">
-                  <p style={{ marginBottom: "5px" }}>
-                    {DisplayStars(item.rating)}
-                  </p>
-                  <p
+        {restaurants.map((item, index) => {
+          if (skip <= index && index <= skip + 49) {
+            //skip par défaut vaut 0
+            // console.log(index);
+            return (
+              <Link
+                key={index}
+                to="/restaurant"
+                style={{ textDecoration: "none" }}
+                state={item}
+              >
+                <div className="all-left-part">
+                  <img
+                    className="image"
                     style={{
-                      marginLeft: "10px",
-                      fontSize: "12px",
+                      width: "100%",
+                      height: "60%",
+                      objectFit: "cover",
+                    }}
+                    src={item.thumbnail}
+                    alt="restaurants"
+                  />
+
+                  <div className="hover">
+                    <div className="text">
+                      <p className="iconCondition">
+                        {IconConditionAll(item.type)}
+                      </p>
+                      <p style={{ fontWeight: "bold" }}>{item.name}</p>
+                      <br />
+                      {item.address}
+                    </div>
+                  </div>
+                  <h3
+                    style={{
+                      marginTop: "5px",
+                      marginBottom: "10px",
+                      fontSize: "10px",
                       color: "#444444",
+                      fontWeight: "bold",
+                      margin: "none",
                     }}
                   >
-                    {"("}
-                    {item.placeId}
-                    {")"}
-                  </p>
+                    {item.name.toUpperCase()}
+                  </h3>
+
+                  <div style={{}} className="stars">
+                    <p style={{ marginBottom: "5px" }}>
+                      {DisplayStars(item.rating)}
+                    </p>
+                    <p
+                      style={{
+                        marginLeft: "10px",
+                        fontSize: "12px",
+                        color: "#444444",
+                      }}
+                    >
+                      {"("}
+                      {item.placeId}
+                      {")"}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </>
-          );
+              </Link>
+            );
+          }
         })}
       </div>
       <div
@@ -137,7 +168,7 @@ export default function AllRestaurants() {
             />
 
             <div className="map-all-restaurants">
-              {restaurants.slice(0, 50).map((item, index) => {
+              {restaurants.map((item, index) => {
                 return (
                   <div key={index} className="marker-of-restaurants">
                     <Marker
@@ -180,13 +211,14 @@ export default function AllRestaurants() {
                                 fontWeight: "bold",
                                 color: "#7D4EC4",
                                 width: "100%",
+                                textAlign: "center",
                               }}
                             >
                               {item.name}
                             </p>
                           </Link>
-                          {/* 
-                          <p>{item.address}</p> */}
+
+                          <p style={{ textAlign: "center" }}>{item.address}</p>
                         </div>
                       </Popup>
                     </Marker>

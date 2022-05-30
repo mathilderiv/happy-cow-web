@@ -307,11 +307,14 @@ input::placeholder {
 
 /* PAGE RESTAURANT */
 
+/* .restaurant-details {
+  border: orange solid 1px;
+} */
+
 .details-title {
   display: flex;
   justify-content: space-between;
   height: 5rem;
-  border: 1px solid #22820e;
   background-color: #22820e;
 }
 
@@ -321,8 +324,11 @@ input::placeholder {
 }
 .left-details {
   color: white;
-  margin-top: 25px;
+
   margin-left: 28rem;
+  border: solid 1px red;
+  width: 50%;
+  height: 100%;
 }
 
 .icon-details {

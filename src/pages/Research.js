@@ -36,7 +36,7 @@ export default function Research() {
         <MapContainer
           style={{ height: "100%" }}
           center={[48.856614, 2.3522219]}
-          zoom={12}
+          zoom={9}
           scrollWheelZoom={false}
         >
           <TileLayer

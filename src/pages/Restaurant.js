@@ -34,7 +34,13 @@ const Restaurant = () => {
       <div className="details-title">
         <div className="left-details">
           <div>
-            <h2 sytle={{ color: "white", marginTop: "25px" }}>{item.name}</h2>
+            <h2
+              sytle={{
+                color: "white",
+              }}
+            >
+              {item.name}
+            </h2>
           </div>
         </div>
         <div className="right-details">
