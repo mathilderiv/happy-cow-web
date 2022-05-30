@@ -1,6 +1,11 @@
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import ReactDOM from "react-dom";
+import ReactPaginate from "react-paginate";
+
 import IconMarker from "../Components/IconMarker";
 import DisplayStars from "../Components/DisplayStars";
-import IconCondition from "../assets/IconCondition";
+import IconConditionAll from "../assets/IconConditionAll";
 import InputAll from "../Components/InputAll";
 
 import restaurants from "../restaurants.json";
@@ -13,9 +18,49 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 export default function AllRestaurants() {
+  //Input
+  const [inputsearch, setInputsearch] = useState("");
+  const [showingRestaurants, setShowingRestaurants] = useState(restaurants);
+
+  //Pages
+  const [page, setPage] = useState(1);
+  const [skip, setSkip] = useState(0);
+
   return (
     <div className="all-the-page">
       <div className="map-all">
+        <div className="pagination">
+          <InputAll
+            inputsearch={inputsearch}
+            setInputsearch={setInputsearch}
+            restaurants={restaurants}
+            setShowingRestaurants={setShowingRestaurants}
+          />
+          <div className="setPage">
+            {page !== 1 && (
+              <button
+                className="page-minus"
+                onClick={() => {
+                  setPage(page - 1);
+                  setSkip(skip - 50);
+                }}
+              >
+                Page précédente
+              </button>
+            )}
+            {skip + 50 < 1493 && (
+              <button
+                className="page-add"
+                onClick={() => {
+                  setPage(page + 1);
+                  setSkip(skip + 50);
+                }}
+              >
+                Page suivante
+              </button>
+            )}
+          </div>
+        </div>
         {restaurants.map((item) => {
           return (
             <>
@@ -29,7 +74,9 @@ export default function AllRestaurants() {
 
                 <div className="hover">
                   <div className="text">
-                    <p className="iconCondition">{IconCondition(item.type)}</p>
+                    <p className="iconCondition">
+                      {IconConditionAll(item.type)}
+                    </p>
                     <p style={{ fontWeight: "bold" }}>{item.name}</p>
                     <br />
                     {item.address}
@@ -39,9 +86,10 @@ export default function AllRestaurants() {
                   style={{
                     marginTop: "5px",
                     marginBottom: "10px",
-                    fontSize: "12px",
+                    fontSize: "10px",
                     color: "#444444",
                     fontWeight: "bold",
+                    margin: "none",
                   }}
                 >
                   {item.name.toUpperCase()}
@@ -95,7 +143,53 @@ export default function AllRestaurants() {
                     <Marker
                       position={[item.location.lat, item.location.lng]}
                       icon={IconMarker(item.type)}
-                    ></Marker>
+                    >
+                      <Popup
+                        minWidth={180}
+                        maxWidth={180}
+                        minHeight={280}
+                        maxHeight={280}
+                      >
+                        <div className="popup-picture">
+                          <img
+                            style={{
+                              height: "20%",
+                              width: "100%",
+                              objectFit: "cover",
+                            }}
+                            src={item.thumbnail}
+                            alt={item.thumbnail}
+                          />
+                        </div>
+
+                        <div
+                          className="popup-details"
+                          // style={{
+                          //   width: "100%",
+                          //   height: "20%",
+                          // }}
+                        >
+                          <Link
+                            style={{ textDecoration: "none" }}
+                            to={"/restaurant"}
+                            state={item}
+                          >
+                            <p
+                              style={{
+                                fontSize: "16px",
+                                fontWeight: "bold",
+                                color: "#7D4EC4",
+                                width: "100%",
+                              }}
+                            >
+                              {item.name}
+                            </p>
+                          </Link>
+                          {/* 
+                          <p>{item.address}</p> */}
+                        </div>
+                      </Popup>
+                    </Marker>
                   </div>
                 );
               })}
