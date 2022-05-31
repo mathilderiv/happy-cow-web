@@ -1,10 +1,14 @@
 import logo from "../img/logo.svg";
 
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import Modal from "./Modal";
+
 const Header = () => {
+  const [show, setShow] = useState(false);
   return (
     <div className="header">
       <Link to="/">
@@ -35,10 +39,14 @@ const Header = () => {
         <button className="add">
           <p>Add Listing</p>
         </button>
-
-        <button className="login">
-          <p>Login / Join</p>
-        </button>
+        <div className="app">
+          <button onClick={() => setShow(true)} className="login">
+            <p>Login / Join</p>
+          </button>
+          <Modal title="signin" onClose={() => setShow(false)} show={show}>
+            <p>Formulaire de signin</p>
+          </Modal>
+        </div>
       </div>
     </div>
   );

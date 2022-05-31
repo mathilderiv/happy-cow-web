@@ -35,8 +35,6 @@ export default function Research() {
         .indexOf(inputsearch.toLowerCase()) !== -1
     ) {
       tab.push(restaurants[i]);
-    } else {
-      break;
     }
   }
 

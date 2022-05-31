@@ -7,6 +7,9 @@ import happycowempty from "../img/happycow-empty.jpeg";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { Link } from "react-router-dom";
+import { useState } from "react";
+
 //Import JSON
 import restaurants from "../restaurants.json";
 
@@ -14,8 +17,6 @@ import restaurants from "../restaurants.json";
 import Input from "../Components/Input";
 import DisplayStars from "../Components/DisplayStars";
 import IconCondition from "../assets/IconCondition";
-import { useState } from "react";
-import { Link } from "react-router-dom";
 
 export default function Home() {
   const [inputsearch, setInputsearch] = useState("");
