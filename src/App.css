@@ -305,11 +305,40 @@ input::placeholder {
 
 /* INPUT ALL */
 
+.input-all {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+}
+
+.form-all {
+  display: flex;
+}
+
+.input-search-all {
+  width: 90%;
+  height: 30px;
+  text-align: center;
+}
+
+.onsubmit-button {
+  background-color: #7b4ec3;
+  border: none;
+  color: white;
+  height: 36px;
+  text-align: center;
+}
+
 /* PAGE RESTAURANT */
 
 /* .restaurant-details {
   border: orange solid 1px;
 } */
+
+.pagination {
+  width: 100%;
+  height: 10%;
+}
 
 .details-title {
   display: flex;
@@ -507,14 +536,8 @@ input::placeholder {
   display: flex;
   flex-wrap: wrap;
   overflow-y: scroll;
-  border: green solid 1px;
 }
 
-.pagination {
-  border: orange solid 1px;
-  width: 100%;
-  height: 20%;
-}
 .global-map {
   width: 50%;
   height: 100%;
@@ -580,10 +603,144 @@ input::placeholder {
   text-align: center;
 }
 
-.test {
+/* .test {
   border: black solid 1px;
   width: 50%;
   height: 10%;
+} */
+
+.setPage {
+  text-align: center;
+}
+
+.page-minus {
+  background-color: #7b4ec3;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  height: 100%;
+  width: 150px;
+  text-align: center;
+  margin-right: 1rem;
+}
+
+.page-add {
+  background-color: #7b4ec3;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  height: 100%;
+  width: 150px;
+  text-align: center;
+}
+
+/* PAGE RESEARCH */
+
+.global-map-research {
+  display: flex;
+  /* width: 100%; */
+}
+
+.one-restaurant {
+  border: lightgray solid 1px;
+  height: 233px;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  width: 29%;
+  text-align: center;
+
+  position: relative;
+}
+
+.one-restaurant .image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.one-restaurant .text {
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.5em;
+
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.one-restaurant .hover {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+}
+
+.one-restaurant:hover .hover {
+  opacity: 0.8;
+}
+
+.one-restaurant .normal {
+  transition: 0.5s ease;
+}
+
+.one-restaurant .hover {
+  background-color: #22820e;
+  border-radius: 10px;
+}
+
+.left-part-research {
+  margin-top: 50px;
+  /* width: 50%; */
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+
+.right-part-research {
+  width: 50%;
+  height: 100vh;
+}
+
+.setPage-research {
+  text-align: center;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.page-minus-research {
+  background-color: #7b4ec3;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  /* height: 100%;
+  width: 150px; */
+  text-align: center;
+  margin-right: 1rem;
+}
+
+.page-add-research {
+  background-color: #7b4ec3;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  /* height: 100%;
+  width: 150px; */
+  text-align: center;
+}
+
+.pagination-research {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  /* overflow-y: scroll; */
 }
 
 /* 
@@ -669,23 +826,3 @@ FOOTER */
   margin-right: 1rem;
   margin-top: 1rem;
 }
-
-/* PAGE RESEARCH */
-
-.global-map {
-  height: 200px;
-  width: 345px;
-  border: black solid 2px;
-}
-
-.tab-map {
-  border: solid purple 1px;
-  height: 100%;
-  width: 50%;
-}
-
-/* .one-restaurant {
-  border: solid purple 1px;
-  height: 100%;
-  width: 50%;
-} */

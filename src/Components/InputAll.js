@@ -10,10 +10,11 @@ const InputAll = ({
   setInputsearch,
   restaurants,
   setShowingRestaurants,
+  handleSubmit,
 }) => {
   return (
     <div className="input-all">
-      <form className="form-all">
+      <form className="form-all" onSubmit={handleSubmit}>
         <input
           className="input-search-all"
           type="text"
@@ -28,13 +29,12 @@ const InputAll = ({
         <button type="submit" className="onsubmit-button">
           <FontAwesomeIcon
             style={{
-              fontSize: "30px",
+              fontSize: "20px",
             }}
             icon="fa-solid fa-magnifying-glass"
           />
         </button>
       </form>
-      {/* <div>{tab}</div> */}
     </div>
   );
 };

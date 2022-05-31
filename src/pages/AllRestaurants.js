@@ -52,6 +52,7 @@ export default function AllRestaurants() {
             setInputsearch={setInputsearch}
             restaurants={restaurants}
             setShowingRestaurants={setShowingRestaurants}
+            handleSubmit={handleSubmit}
           />
 
           <div className="setPage">
@@ -60,7 +61,7 @@ export default function AllRestaurants() {
                 className="page-minus"
                 onClick={() => {
                   setPage(page - 1);
-                  setSkip((page - 2) * 50);
+                  setSkip((page - 2) * 50); //il faut laisser le temps à setPage de se mettre à jour
                 }}
               >
                 Page précédente
@@ -71,7 +72,7 @@ export default function AllRestaurants() {
               className="page-add"
               onClick={() => {
                 setPage(page + 1);
-                setSkip(page * 50);
+                setSkip(page * 50); //il faut laisser le temps à setPage de se mettre à jour
               }}
             >
               Page suivante
@@ -79,7 +80,7 @@ export default function AllRestaurants() {
           </div>
         </div>
 
-        {restaurants.map((item, index) => {
+        {showingRestaurants.map((item, index) => {
           if (skip <= index && index <= skip + 49) {
             //skip par défaut vaut 0
             // console.log(index);
@@ -158,7 +159,7 @@ export default function AllRestaurants() {
           <MapContainer
             style={{ height: "100%" }}
             center={[48.856614, 2.3522219]}
-            zoom={13}
+            zoom={12}
             scrollWheelZoom={true}
             keyboard={true}
           >
@@ -168,7 +169,7 @@ export default function AllRestaurants() {
             />
 
             <div className="map-all-restaurants">
-              {restaurants.map((item, index) => {
+              {showingRestaurants.map((item, index) => {
                 return (
                   <div key={index} className="marker-of-restaurants">
                     <Marker
