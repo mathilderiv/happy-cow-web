@@ -6,6 +6,7 @@ import IconMarker from "../Components/IconMarker";
 import DisplayStars from "../Components/DisplayStars";
 import IconConditionAll from "../assets/IconConditionAll";
 import InputAll from "../Components/InputAll";
+import Filters from "../Components/Filters";
 
 import restaurants from "../restaurants.json";
 
@@ -15,6 +16,7 @@ import L from "leaflet";
 
 //Import css de la map
 import "leaflet/dist/leaflet.css";
+import { type } from "@testing-library/user-event/dist/type";
 
 export default function AllRestaurants() {
   //Input
@@ -25,18 +27,42 @@ export default function AllRestaurants() {
   const [page, setPage] = useState(1);
   const [skip, setSkip] = useState(0);
 
+  //Filtres
+  const [types, setTypes] = useState([
+    "Veg Store",
+    "vegan",
+    "vegetarian",
+    "veg-options",
+    "Ice Cream",
+    "Other",
+    "Healt Store",
+    "Professionnal",
+  ]);
+  const [filter, setFilter] = useState(null);
+
+  useEffect(() => {
+    if (filter && filter !== "reset") {
+      const restaurantsTemp = restaurants.filter((restaurant) => {
+        return restaurant.type === filter;
+      });
+      setShowingRestaurants([...restaurantsTemp]);
+    } else {
+      setShowingRestaurants(restaurants);
+    }
+  }, [filter]);
+
   //Survol marker
-  const [isShown, setIsShown] = useState(false);
+  // const [isShown, setIsShown] = useState(false);
 
-  function bigImg(x) {
-    x.style.height = "64px";
-    x.style.width = "64px";
-  }
+  // function bigImg(x) {
+  //   x.style.height = "64px";
+  //   x.style.width = "64px";
+  // }
 
-  function normalImg(x) {
-    x.style.height = "32px";
-    x.style.width = "32px";
-  }
+  // function normalImg(x) {
+  //   x.style.height = "32px";
+  //   x.style.width = "32px";
+  // }
 
   // pour trier sur la page home
   const handleSubmit = (event) => {
@@ -56,6 +82,7 @@ export default function AllRestaurants() {
     setShowingRestaurants(tab);
   };
 
+  console.log("filter", filter);
   return (
     <div className="all-the-page">
       <div className="map-all">
@@ -67,6 +94,13 @@ export default function AllRestaurants() {
             setShowingRestaurants={setShowingRestaurants}
             handleSubmit={handleSubmit}
           />
+
+          <div className="flex">
+            {types.map((type, index) => {
+              return <Filters key={index} type={type} setFilter={setFilter} />;
+            })}
+            <Filters type="reset" setFilter={setFilter} />
+          </div>
 
           <div className="setPage">
             {page !== 1 && (

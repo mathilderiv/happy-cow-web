@@ -55,7 +55,7 @@ export default function Home() {
 
         <div className="main">
           {showingRestaurants.slice(0, 20).map((item) => {
-            // console.log(item.type);
+            console.log("type", item.type);
             const adressAndCountry = item.address.split(",");
 
             return (
