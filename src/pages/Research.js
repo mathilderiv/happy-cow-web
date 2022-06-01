@@ -18,6 +18,8 @@ import "leaflet/dist/leaflet.css";
 
 export default function Research() {
   const location = useLocation();
+  console.log(location);
+
   const { inputsearch } = location.state;
 
   //Pages
@@ -35,10 +37,9 @@ export default function Research() {
     ) {
       tab.push(restaurants[i]);
     }
-    console.log(tab[0]);
   }
 
-  return (
+  return tab.length > 0 ? (
     <div className="global-map-research">
       <div className="pagination-research">
         <div className="setPage-research">
@@ -128,7 +129,11 @@ export default function Research() {
         <div style={{ height: "100%" }} id="map">
           <MapContainer
             style={{ height: "100%" }}
-            center={[tab[0].location.lat, tab[0].location.lng]}
+            center={
+              tab
+                ? [tab[0].location.lat, tab[0].location.lng]
+                : [48.8564449, 2.402913]
+            }
             zoom={13}
             scrollWheelZoom={false}
           >
@@ -145,12 +150,11 @@ export default function Research() {
                       position={[item.location.lat, item.location.lng]}
                       icon={IconMarker(item.type)}
                     >
-                      {" "}
                       <Popup
-                        minWidth={180}
-                        maxWidth={180}
-                        minHeight={280}
-                        maxHeight={280}
+                        minWidth={200}
+                        maxWidth={200}
+                        minHeight={350}
+                        maxHeight={350}
                       >
                         <div className="popup-picture">
                           <img
@@ -164,13 +168,7 @@ export default function Research() {
                           />
                         </div>
 
-                        <div
-                          className="popup-details"
-                          // style={{
-                          //   width: "100%",
-                          //   height: "20%",
-                          // }}
-                        >
+                        <div className="popup-details">
                           <Link
                             style={{ textDecoration: "none" }}
                             to={"/restaurant"}
@@ -200,6 +198,17 @@ export default function Research() {
           </MapContainer>
         </div>
       </div>
+    </div>
+  ) : (
+    <div className="empty-search">
+      <p>Nous n'avons pas trouver de résultat pour votre recherche</p>
+      <img
+        src="https://media.giphy.com/media/jrAgdPqTiz2Ew/giphy.gif"
+        alt="cow-research"
+      />
+      <Link to="/">
+        <button>Retour à la page principale</button>
+      </Link>
     </div>
   );
 }

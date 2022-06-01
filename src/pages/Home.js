@@ -133,7 +133,12 @@ export default function Home() {
             .slice(0, 10)
             .map((item, index) => {
               return (
-                <Link className="best-link" to={"/restaurant"} state={item}>
+                <Link
+                  key={index}
+                  className="best-link"
+                  to={"/restaurant"}
+                  state={item}
+                >
                   {/* <div className="restaurants-top-cards" key={index}> */}
                   <div className="pictures-condition">
                     {item.thumbnail ? (

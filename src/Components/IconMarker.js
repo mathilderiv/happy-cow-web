@@ -8,6 +8,7 @@ import professional from "../img/category_vegan-professional.svg";
 import healthstore from "../img/category_health-store.svg";
 import rest from "../img/rest_icon.svg";
 
+import { useState } from "react";
 // Import package react leaflet
 import L from "leaflet";
 

@@ -25,6 +25,19 @@ export default function AllRestaurants() {
   const [page, setPage] = useState(1);
   const [skip, setSkip] = useState(0);
 
+  //Survol marker
+  const [isShown, setIsShown] = useState(false);
+
+  function bigImg(x) {
+    x.style.height = "64px";
+    x.style.width = "64px";
+  }
+
+  function normalImg(x) {
+    x.style.height = "32px";
+    x.style.width = "32px";
+  }
+
   // pour trier sur la page home
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -177,10 +190,10 @@ export default function AllRestaurants() {
                       icon={IconMarker(item.type)}
                     >
                       <Popup
-                        minWidth={180}
-                        maxWidth={180}
-                        minHeight={280}
-                        maxHeight={280}
+                        minWidth={200}
+                        maxWidth={200}
+                        minHeight={350}
+                        maxHeight={350}
                       >
                         <div className="popup-picture">
                           <img
