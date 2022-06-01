@@ -26,39 +26,37 @@ const Header = () => {
   // 3 : email déjà pris en BDD
   // 4 : username déjà pris en BDD
 
-  const [error, setError] = useState(0);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setError(0);
+    // setError(0);
 
     if (email && username && password && confirmPassword) {
       if (password === confirmPassword) {
         try {
-          const response = await axios.post("http://localhost:4000/signin", {
+          const response = await axios.post("http://localhost:4000/signup", {
             email,
             username,
             password,
           });
-          console.log(response.data);
+          // console.log(response.data);
         } catch (error) {
           console.log(error.response.data);
-          if (error.response.data.message === "Ce username est déjà utilisé") {
+          if (error.response.data.message === "Cet username existe déjà") {
             // username déjà pris en BDD
-            setError(4);
-          } else if (
-            error.response.data.message === "Cet email est déjà utilisé"
-          ) {
+            setError("Cet username existe déjà");
+          } else if (error.response.data.message === "Cet email existe déjà") {
             // email déjà pris en BDD
-            setError(3);
+            setError("Cet email existe déjà");
           }
         }
       } else {
-        setError(2);
+        setError("Les mots de passe ne sont identiques");
         //MDP non identique
       }
     } else {
-      setError(1);
+      setError("Vous devez compléter tous les champs");
       //tous les champs doivent être rempli
     }
   };
@@ -136,15 +134,7 @@ const Header = () => {
               />
 
               <button type="submit">Créer mon compte</button>
-              {error === 1 ? (
-                <p>Vous devez remplir tous les champs</p>
-              ) : error === 2 ? (
-                <p>Les 2 mots de passe ne sont pas identiques</p>
-              ) : error === 3 ? (
-                <p>Cet email est déjà utilisé</p>
-              ) : error === 4 ? (
-                <p>Ce username est déjà utilisé</p>
-              ) : null}
+              {error && setError}
             </form>
           </Modal>
         </div>
