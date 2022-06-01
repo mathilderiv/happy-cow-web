@@ -29,14 +29,16 @@ const Modal = (props) => {
           <h4 className="modal-title">{props.title}</h4>
         </div>
         <div className="modal-body">
-          {props.children}
-          <img style={{ height: "50px", width: "50px" }} src={modal} alt="" />
+          <div className="modal-body-left">
+            <img className="modal-picture" src={modal} alt="" />
+          </div>
+          <div className="modal-body-right">{props.children}</div>
         </div>
-        <div className="modal-footer">
+        {/* <div className="modal-footer">
           <button onClick={props.onClose} className="button">
             Close
-          </button>
-        </div>
+          </button> */}
+        {/* </div> */}
       </div>
     </div>
   );

@@ -101,6 +101,7 @@ const Header = () => {
             show={show}
           >
             <form className="signup-form" onSubmit={handleSubmit}>
+              Email
               <input
                 type="email"
                 name="email"
@@ -109,6 +110,7 @@ const Header = () => {
                   setEmail(event.target.value);
                 }}
               />
+              Username
               <input
                 type="text"
                 name="username"
@@ -117,6 +119,7 @@ const Header = () => {
                   setUsername(event.target.value);
                 }}
               />
+              Mot de passe
               <input
                 type="password"
                 name="password"
@@ -125,6 +128,7 @@ const Header = () => {
                   setPassword(event.target.value);
                 }}
               />
+              Confirmation mot de passe
               <input
                 type="password"
                 name="confirm-password"
@@ -133,7 +137,9 @@ const Header = () => {
                   setConfirmPassword(event.target.value);
                 }}
               />
-              <button type="submit">Créer mon compte</button>
+              <button className="modal-button" type="submit">
+                Créer mon compte
+              </button>
               {error && error}
             </form>
           </Modal>

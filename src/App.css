@@ -842,27 +842,67 @@ FOOTER */
 }
 
 .modal-content {
-  /* width: 830px;
-  height: 550px; */
   background-color: #fff;
-  border: red solid 1px;
 }
 
-.modal-header,
-.modal-footer {
+.modal-header {
   padding: 10px;
 }
 
 .modal-title {
   margin: 0;
+  font-size: 28px;
 }
 
 .modal-body {
-  padding: 10px;
+  display: flex;
+  width: 830px;
+  height: 550px;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
 }
 
+.modal-body-right {
+  height: 100%;
+  width: 55%;
+
+  display: flex;
+}
+
+.modal-body-left {
+  width: 45%;
+  height: 100%;
+}
+
+.modal-picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .signup-form {
   display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-form input {
+  margin-bottom: 20px;
+  margin-top: 10px;
+  width: 250px;
+  height: 2rem;
+  border: 1px solid lightgrey;
+}
+
+.modal-button {
+  height: 3rem;
+  width: 9rem;
+  border: 1px solid #7b4ec3;
+  border-radius: 5px;
+  background-color: #7b4ec3;
+
+  color: white;
+  font-size: 16px;
 }

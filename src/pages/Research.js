@@ -155,6 +155,7 @@ export default function Research() {
                         maxWidth={200}
                         minHeight={350}
                         maxHeight={350}
+                        closeButton={false}
                       >
                         <div className="popup-picture">
                           <img
