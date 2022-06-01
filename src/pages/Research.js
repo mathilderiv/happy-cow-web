@@ -1,11 +1,10 @@
-import { tab } from "@testing-library/user-event/dist/tab";
+import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 
 import IconMarker from "../Components/IconMarker";
 import DisplayStars from "../Components/DisplayStars";
 import IconConditionAll from "../assets/IconConditionAll";
-import InputAll from "../Components/InputAll";
 
 //Import JSON
 import restaurants from "../restaurants.json";
@@ -36,6 +35,7 @@ export default function Research() {
     ) {
       tab.push(restaurants[i]);
     }
+    console.log(tab[0]);
   }
 
   return (
@@ -128,7 +128,7 @@ export default function Research() {
         <div style={{ height: "100%" }} id="map">
           <MapContainer
             style={{ height: "100%" }}
-            center={[48.856614, 2.3522219]}
+            center={[tab[0].location.lat, tab[0].location.lng]}
             zoom={13}
             scrollWheelZoom={false}
           >
@@ -144,7 +144,55 @@ export default function Research() {
                     <Marker
                       position={[item.location.lat, item.location.lng]}
                       icon={IconMarker(item.type)}
-                    ></Marker>
+                    >
+                      {" "}
+                      <Popup
+                        minWidth={180}
+                        maxWidth={180}
+                        minHeight={280}
+                        maxHeight={280}
+                      >
+                        <div className="popup-picture">
+                          <img
+                            style={{
+                              height: "20%",
+                              width: "100%",
+                              objectFit: "cover",
+                            }}
+                            src={item.thumbnail}
+                            alt={item.thumbnail}
+                          />
+                        </div>
+
+                        <div
+                          className="popup-details"
+                          // style={{
+                          //   width: "100%",
+                          //   height: "20%",
+                          // }}
+                        >
+                          <Link
+                            style={{ textDecoration: "none" }}
+                            to={"/restaurant"}
+                            state={item}
+                          >
+                            <p
+                              style={{
+                                fontSize: "16px",
+                                fontWeight: "bold",
+                                color: "#7D4EC4",
+                                width: "100%",
+                                textAlign: "center",
+                              }}
+                            >
+                              {item.name}
+                            </p>
+                          </Link>
+
+                          <p style={{ textAlign: "center" }}>{item.address}</p>
+                        </div>
+                      </Popup>
+                    </Marker>
                   </div>
                 );
               })}

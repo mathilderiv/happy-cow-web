@@ -1,5 +1,7 @@
 import React from "react";
 
+import modal from "../img/modal.jpeg";
+
 // import { useEffect } from "react";
 
 const Modal = (props) => {
@@ -26,7 +28,10 @@ const Modal = (props) => {
         <div className="modal-header">
           <h4 className="modal-title">{props.title}</h4>
         </div>
-        <div className="modal-body">{props.children}</div>
+        <div className="modal-body">
+          {props.children}
+          <img style={{ height: "50px", width: "50px" }} src={modal} alt="" />
+        </div>
         <div className="modal-footer">
           <button onClick={props.onClose} className="button">
             Close

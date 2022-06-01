@@ -19,18 +19,11 @@ const Header = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  // state pour gérer les erreurs :
-  // 0 : pas d'erreur
-  // 1 : un ou plusieurs champs sont vides
-  // 2 : MDP ne sont pas identiques
-  // 3 : email déjà pris en BDD
-  // 4 : username déjà pris en BDD
-
   const [error, setError] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // setError(0);
+    setError("");
 
     if (email && username && password && confirmPassword) {
       if (password === confirmPassword) {
@@ -40,10 +33,13 @@ const Header = () => {
             username,
             password,
           });
-          // console.log(response.data);
+          console.log("response", response.data);
+          //prévenir le client de la création du compte.
+          alert("votre compte a bien été créé");
+          setShow(false);
         } catch (error) {
-          console.log(error.response.data);
-          if (error.response.data.message === "Cet username existe déjà") {
+          console.log("catch header", error.response.data);
+          if (error.response.data?.message === "Cet username existe déjà") {
             // username déjà pris en BDD
             setError("Cet username existe déjà");
           } else if (error.response.data.message === "Cet email existe déjà") {
@@ -96,7 +92,14 @@ const Header = () => {
             <p>Login / Join</p>
           </button>
 
-          <Modal title="Sign Up" onClose={() => setShow(false)} show={show}>
+          <Modal
+            title="Sign Up"
+            onClose={() => {
+              setShow(false);
+              setError("");
+            }}
+            show={show}
+          >
             <form className="signup-form" onSubmit={handleSubmit}>
               <input
                 type="email"
@@ -106,7 +109,6 @@ const Header = () => {
                   setEmail(event.target.value);
                 }}
               />
-
               <input
                 type="text"
                 name="username"
@@ -115,7 +117,6 @@ const Header = () => {
                   setUsername(event.target.value);
                 }}
               />
-
               <input
                 type="password"
                 name="password"
@@ -132,9 +133,8 @@ const Header = () => {
                   setConfirmPassword(event.target.value);
                 }}
               />
-
               <button type="submit">Créer mon compte</button>
-              {error && setError}
+              {error && error}
             </form>
           </Modal>
         </div>
