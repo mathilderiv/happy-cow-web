@@ -89,7 +89,7 @@ const Header = () => {
         </button>
         <div className="app">
           <button onClick={() => setShow(true)} className="login">
-            <p>Login / Join</p>
+            <p>Signup</p>
           </button>
 
           <Modal

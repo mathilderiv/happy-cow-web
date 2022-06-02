@@ -33,8 +33,8 @@ function Filters({ type, setFilter }) {
       setIcon(Professionnal);
     } else if (type === "reset") {
       setIcon(Reset);
-    } else {
-      setIcon(Rest);
+      // } else {
+      //   setIcon(Rest);
     }
   }, []);
 

@@ -1,86 +1,21 @@
-//Import JSON
-import restaurants from "../restaurants.json";
-
-export default function TitleCondition(type) {
+const TitleCondition = (type) => {
   if (type === "Veg Store") {
-    return (
-      <h2
-        style={{
-          backgroundColor: "#22820D",
-          color: "white",
-          marginTop: "25px",
-        }}
-      ></h2>
-    );
+    return "vegstore-style";
   } else if (type === "vegetarian") {
-    return (
-      <h2
-        style={{
-          backgroundColor: "#8A2091",
-          color: "white",
-          marginTop: "25px",
-        }}
-      ></h2>
-    );
+    return "vegetarian-style";
+  } else if (type === "vegan") {
+    return "vegan-style";
   } else if (type === "veg-options") {
-    return (
-      <h2
-        style={{
-          backgroundColor: "#DC5E5C",
-          color: "white",
-          marginTop: "25px",
-        }}
-      ></h2>
-    );
+    return "vegoptions-style";
   } else if (type === "Ice Cream") {
-    return (
-      <h2
-        style={{
-          backgroundColor: "#B0305B",
-          color: "white",
-          marginTop: "25px",
-        }}
-      ></h2>
-    );
+    return "icecream-style";
   } else if (type === "Other") {
-    return (
-      <h2
-        style={{
-          backgroundColor: "#3775C5",
-          color: "white",
-          marginTop: "25px",
-        }}
-      ></h2>
-    );
+    return "other-style";
   } else if (type === "Health Store") {
-    return (
-      <h2
-        style={{
-          backgroundColor: "#B59905",
-          color: "white",
-          marginTop: "25px",
-        }}
-      ></h2>
-    );
+    return "healthstore-style";
   } else if (type === "Professionnal") {
-    return (
-      <h2
-        style={{
-          backgroundColor: "#006739",
-          color: "white",
-          marginTop: "25px",
-        }}
-      ></h2>
-    );
-  } else {
-    return (
-      <h2
-        style={{
-          backgroundColor: "#4D57A7",
-          color: "white",
-          marginTop: "25px",
-        }}
-      ></h2>
-    );
   }
-}
+  return "professionnal-style";
+};
+
+export default TitleCondition;

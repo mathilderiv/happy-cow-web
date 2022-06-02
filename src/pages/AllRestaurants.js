@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 
 import IconMarker from "../Components/IconMarker";
 import DisplayStars from "../Components/DisplayStars";
@@ -11,12 +10,10 @@ import Filters from "../Components/Filters";
 import restaurants from "../restaurants.json";
 
 // Import package react leaflet
-import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
-import L from "leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 //Import css de la map
 import "leaflet/dist/leaflet.css";
-import { type } from "@testing-library/user-event/dist/type";
 
 export default function AllRestaurants() {
   //Input
@@ -35,7 +32,7 @@ export default function AllRestaurants() {
     "veg-options",
     "Ice Cream",
     "Other",
-    "Healt Store",
+    "Health Store",
     "Professionnal",
   ]);
   const [filter, setFilter] = useState(null);

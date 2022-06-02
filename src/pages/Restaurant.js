@@ -2,10 +2,10 @@ import { useLocation } from "react-router-dom";
 
 //Import image
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import veganImage from "../img/category_vegan.svg";
-import vegstore from "../img/vegstore-category-logo.svg";
-import vegetarian from "../img/vegetatian-logo.svg";
-import vegoption from "../img/veg-options-logo.svg";
+// import veganImage from "../img/category_vegan.svg";
+// import vegstore from "../img/vegstore-category-logo.svg";
+// import vegetarian from "../img/vegetatian-logo.svg";
+// import vegoption from "../img/veg-options-logo.svg";
 import category from "../img/category-top.svg";
 
 import noimage from "../img/no-image.png";
@@ -15,14 +15,13 @@ import noimage from "../img/no-image.png";
 import DisplayStars from "../Components/DisplayStars";
 import IconCondition from "../assets/IconCondition";
 import IconMarker from "../Components/IconMarker";
-// import IconCondition from "../Components/IconCondition";
+import TitleCondition from "../assets/TitleCondition";
 
 //Import css de la map
 import "leaflet/dist/leaflet.css";
 
 // Import package react leaflet
-import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
-import L from "leaflet";
+import { MapContainer, TileLayer, Marker } from "react-leaflet";
 
 const Restaurant = () => {
   //Passer les information du restaurant via le LINK
@@ -31,33 +30,43 @@ const Restaurant = () => {
 
   return (
     <div className="restaurant-details">
-      <div className="details-title">
-        <div className="left-details">
-          <div>
-            <h2
-              sytle={{
+      <div className="header-restaurant">
+        <div className={TitleCondition(item.type)}>
+          <div className="left-part">
+            <h2 style={{ marginTop: "2rem" }}>{item.name}</h2>
+          </div>
+          <div className="right-part-header">
+            <FontAwesomeIcon
+              style={{
                 color: "white",
+                fontSize: "16px",
+                marginRight: "2rem",
+                marginTop: "2rem",
               }}
-            >
-              {item.name}
-            </h2>
+              icon="fa-solid fa-arrow-up-from-bracket"
+            />
+            <FontAwesomeIcon
+              style={{
+                color: "white",
+                fontSize: "16px",
+                marginRight: "2rem",
+                marginTop: "2rem",
+              }}
+              icon="fa-solid fa-plane-departure"
+            />
+            <FontAwesomeIcon
+              style={{
+                color: "white",
+                fontSize: "16px",
+                marginRight: "2rem",
+                marginTop: "2rem",
+              }}
+              icon="fa-solid fa-bookmark"
+            />
           </div>
         </div>
-        <div className="right-details">
-          <FontAwesomeIcon
-            style={{ color: "white", fontSize: "18px", marginRight: "2rem" }}
-            icon="fa-solid fa-arrow-up-from-bracket"
-          />
-          <FontAwesomeIcon
-            style={{ color: "white", fontSize: "18px", marginRight: "2rem" }}
-            icon="fa-solid fa-plane-departure"
-          />
-          <FontAwesomeIcon
-            style={{ color: "white", fontSize: "18px", marginRight: "2rem" }}
-            icon="fa-solid fa-bookmark"
-          />
-        </div>
       </div>
+
       <div className="container">
         <div className="icons-details">
           <div className="icon-details">

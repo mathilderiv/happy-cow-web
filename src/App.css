@@ -2,6 +2,7 @@
 body {
   font-family: "Nunito", sans-serif;
 }
+
 /* HEADER */
 
 .header {
@@ -331,33 +332,31 @@ input::placeholder {
 
 /* PAGE RESTAURANT */
 
-/* .restaurant-details {
-  border: orange solid 1px;
-} */
-
 .pagination {
   width: 100%;
-  /* height: 10%; */
 }
 
-.details-title {
-  display: flex;
-  justify-content: space-between;
+.header-restaurant {
   height: 5rem;
-  background-color: #22820e;
 }
 
 .container {
-  padding-left: 28rem;
-  padding-right: 28rem;
+  padding-left: 15%;
+  padding-right: 15%;
 }
-.left-details {
-  color: white;
-
-  margin-left: 28rem;
-
-  width: 50%;
+.left-part {
+  text-align: center;
+  padding-left: 15%;
+  box-sizing: border-box;
+  width: 75%;
   height: 100%;
+}
+
+.right-part-header {
+  width: 25%;
+  text-align: center;
+  padding-right: 10%;
+  box-sizing: border-box;
 }
 
 .icon-details {
@@ -377,6 +376,7 @@ input::placeholder {
   height: 100%;
   align-items: center;
   justify-content: center;
+  border: black solid 1px;
 
   margin-right: 26rem;
 }
@@ -523,6 +523,81 @@ input::placeholder {
   width: 340px;
 }
 
+/* TITLE CONDITION */
+
+.vegstore-style,
+.vegan-style {
+  background-color: #22820e;
+  height: 100%;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.vegetarian-style {
+  background-color: #8a2091;
+  height: 100%;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.vegoptions-style {
+  background-color: #dc5e5c;
+  height: 100%;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icecream-style {
+  background-color: #b0305b;
+  height: 100%;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.other-style {
+  background-color: #3775c5;
+  height: 100%;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.healthstore-style {
+  background-color: #b59905;
+  height: 100%;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.professionnal-style {
+  background-color: #006739;
+  height: 100%;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rest-style {
+  background-color: #4d57a7;
+  height: 100%;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
 /* PAGE ALL RESTAURANTS */
 
 .all-the-page {
@@ -530,7 +605,6 @@ input::placeholder {
   border: black solid 1px;
 }
 .map-all {
-  /* margin-top: 150px; */
   width: 50%;
   height: 100vh;
   display: flex;
@@ -570,7 +644,7 @@ input::placeholder {
   color: #fff;
   font-size: 16px;
   line-height: 1.5em;
-  /* text-shadow: 2px 2px 2px #000; */
+
   text-align: center;
   position: absolute;
   top: 50%;
@@ -602,12 +676,6 @@ input::placeholder {
 .stars {
   text-align: center;
 }
-
-/* .test {
-  border: black solid 1px;
-  width: 50%;
-  height: 10%;
-} */
 
 .setPage {
   text-align: center;

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import IconMarker from "../Components/IconMarker";
 import DisplayStars from "../Components/DisplayStars";
@@ -11,7 +11,6 @@ import restaurants from "../restaurants.json";
 
 // Import package react leaflet
 import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
-import L from "leaflet";
 
 //Import css de la map
 import "leaflet/dist/leaflet.css";
