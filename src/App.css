@@ -597,6 +597,41 @@ input::placeholder {
   display: flex;
   justify-content: space-between;
 }
+/* 
+HOVER CONDITION */
+
+/* .vegstore-hover-style,
+.vegan-hover-style {
+  background-color: #22820e;
+}
+
+.vegetarian-hover-style {
+  background-color: #8a2091;
+}
+
+.vegoptions-hover-style {
+  background-color: #dc5e5c;
+}
+
+.icecream-hover-style {
+  background-color: #b0305b;
+}
+
+.other-hover-style {
+  background-color: #3775c5;
+}
+
+.healthstore-hover-style {
+  background-color: #b59905;
+}
+
+.professionnal-hover-style {
+  background-color: #006739;
+}
+
+.rest-hover-style {
+  background-color: #4d57a7;
+} */
 
 /* PAGE ALL RESTAURANTS */
 
@@ -824,6 +859,39 @@ input::placeholder {
   /* overflow-y: scroll; */
 }
 
+.empty-search {
+  border: black solid 2px;
+  text-align: center;
+  height: 70vh;
+  display: flex;
+  /* flex-direction: column; */
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-search p {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 30px;
+
+  color: #7b4ec3;
+}
+
+.empty-search button {
+  background-color: #7b4ec3;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  height: 4rem;
+  width: 8rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 16px;
+}
 /* 
 FOOTER */
 

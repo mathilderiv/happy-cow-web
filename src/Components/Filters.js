@@ -8,7 +8,7 @@ import Icecream from "../img/category_ice-cream.svg";
 import Other from "../img/category_other.svg";
 import Professionnal from "../img/category_vegan-professional.svg";
 import Healthstore from "../img/category_health-store.svg";
-import Rest from "../img/rest_icon.svg";
+// import Rest from "../img/rest_icon.svg";
 import Reset from "../img/reset.png";
 
 function Filters({ type, setFilter }) {
@@ -40,7 +40,7 @@ function Filters({ type, setFilter }) {
 
   return (
     <div className="icon-filter" onClick={() => setFilter(type)}>
-      <img style={{ height: "2rem", width: "2rem" }} src={icon} />
+      <img style={{ height: "2rem", width: "2rem" }} src={icon} alt="" />
       <p style={{ fontSize: "12px" }}>{type}</p>
     </div>
   );

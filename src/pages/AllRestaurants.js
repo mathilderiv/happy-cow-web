@@ -48,7 +48,7 @@ export default function AllRestaurants() {
     }
   }, [filter]);
 
-  //Survol marker
+  // Survol marker
   // const [isShown, setIsShown] = useState(false);
 
   // function bigImg(x) {
@@ -137,6 +137,8 @@ export default function AllRestaurants() {
               >
                 <div className="all-left-part">
                   <img
+                    // onMouseEnter={() => setIsShown(true)}
+                    // onMouseLeave={() => setIsShown(false)}
                     className="image"
                     style={{
                       width: "100%",
@@ -217,6 +219,9 @@ export default function AllRestaurants() {
                 return (
                   <div key={index} className="marker-of-restaurants">
                     <Marker
+                      // onMouseEnter="bigImg(this)"
+                      // onMouseLeave="normalImg(this)"
+                      // border="0"
                       position={[item.location.lat, item.location.lng]}
                       icon={IconMarker(item.type)}
                     >

@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import IconMarker from "../Components/IconMarker";
 import DisplayStars from "../Components/DisplayStars";
 import IconConditionAll from "../assets/IconConditionAll";
+// import HoverCondition from "../assets/HoverCondition";
 
 //Import JSON
 import restaurants from "../restaurants.json";
 
 // Import package react leaflet
-import { MapContainer, TileLayer, useMap, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 //Import css de la map
 import "leaflet/dist/leaflet.css";
@@ -77,6 +78,7 @@ export default function Research() {
                       borderRadius: "10px",
                     }}
                     src={item.thumbnail}
+                    alt=""
                   />
                   <div className="hover">
                     <div className="text">
@@ -88,6 +90,7 @@ export default function Research() {
                       {item.address}
                     </div>
                   </div>
+
                   <p
                     style={{
                       marginTop: "5px",
@@ -128,12 +131,8 @@ export default function Research() {
         <div style={{ height: "100%" }} id="map">
           <MapContainer
             style={{ height: "100%" }}
-            center={
-              tab
-                ? [tab[0].location.lat, tab[0].location.lng]
-                : [48.8564449, 2.402913]
-            }
-            zoom={13}
+            center={[tab[0].location.lat, tab[0].location.lng]}
+            zoom={14}
             scrollWheelZoom={false}
           >
             <TileLayer
@@ -201,14 +200,22 @@ export default function Research() {
     </div>
   ) : (
     <div className="empty-search">
-      <p>Nous n'avons pas trouver de résultat pour votre recherche</p>
-      <img
-        src="https://media.giphy.com/media/jrAgdPqTiz2Ew/giphy.gif"
-        alt="cow-research"
-      />
-      <Link to="/">
-        <button>Retour à la page principale</button>
-      </Link>
+      <div className="top">
+        <p>Nous n'avons pas trouver de résultat pour votre recherche</p>
+        <img
+          style={{
+            height: "100%",
+            width: "30%",
+            objectFit: "cover",
+            marginBottom: "30px",
+          }}
+          src="https://media.giphy.com/media/jrAgdPqTiz2Ew/giphy.gif"
+          alt="cow-research"
+        />
+        <Link to="/">
+          <button>Retour à la page principale</button>
+        </Link>
+      </div>
     </div>
   );
 }
