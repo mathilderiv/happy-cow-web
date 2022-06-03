@@ -8,10 +8,12 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Modal from "./Modal";
+import ModalLogin from "./ModalLogin";
 
 const Header = () => {
   //state modal
   const [show, setShow] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
 
   //state form
   const [email, setEmail] = useState("");
@@ -88,8 +90,12 @@ const Header = () => {
           <p>Add Listing</p>
         </button>
         <div className="app">
-          <button onClick={() => setShow(true)} className="login">
+          <button onClick={() => setShow(true)} className="signup">
             <p>Signup</p>
+          </button>
+
+          <button onClick={() => setShowLogin(true)} className="login">
+            <p>Login</p>
           </button>
 
           <Modal
@@ -141,6 +147,48 @@ const Header = () => {
                 Créer mon compte
               </button>
               {error && error}
+            </form>
+          </Modal>
+
+          <Modal
+            title="Log in"
+            onClose={() => {
+              setShowLogin(false);
+              // setError("");
+            }}
+            showLogin={showLogin}
+          >
+            <form className="signup-form-login">
+              Email
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                onChange={(event) => {
+                  setEmail(event.target.value);
+                }}
+              />
+              Username
+              <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                onChange={(event) => {
+                  setUsername(event.target.value);
+                }}
+              />
+              Mot de passe
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                onChange={(event) => {
+                  setPassword(event.target.value);
+                }}
+              />
+              <button className="modal-button" type="submit">
+                Login
+              </button>
             </form>
           </Modal>
         </div>

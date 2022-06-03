@@ -14,6 +14,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 //Import css de la map
 import "leaflet/dist/leaflet.css";
+import { tab } from "@testing-library/user-event/dist/tab";
 
 export default function AllRestaurants() {
   //Input
@@ -47,19 +48,6 @@ export default function AllRestaurants() {
       setShowingRestaurants(restaurants);
     }
   }, [filter]);
-
-  // Survol marker
-  // const [isShown, setIsShown] = useState(false);
-
-  // function bigImg(x) {
-  //   x.style.height = "64px";
-  //   x.style.width = "64px";
-  // }
-
-  // function normalImg(x) {
-  //   x.style.height = "32px";
-  //   x.style.width = "32px";
-  // }
 
   // pour trier sur la page home
   const handleSubmit = (event) => {
@@ -105,7 +93,7 @@ export default function AllRestaurants() {
                 className="page-minus"
                 onClick={() => {
                   setPage(page - 1);
-                  setSkip((page - 2) * 50); //il faut laisser le temps à setPage de se mettre à jour
+                  setSkip((page - 2) * 51); //il faut laisser le temps à setPage de se mettre à jour
                 }}
               >
                 Page précédente
@@ -125,7 +113,7 @@ export default function AllRestaurants() {
         </div>
 
         {showingRestaurants.map((item, index) => {
-          if (skip <= index && index <= skip + 49) {
+          if (skip <= index && index <= skip + 50) {
             //skip par défaut vaut 0
             // console.log(index);
             return (
@@ -137,13 +125,12 @@ export default function AllRestaurants() {
               >
                 <div className="all-left-part">
                   <img
-                    // onMouseEnter={() => setIsShown(true)}
-                    // onMouseLeave={() => setIsShown(false)}
                     className="image"
                     style={{
                       width: "100%",
                       height: "60%",
                       objectFit: "cover",
+                      borderRadius: "10px",
                     }}
                     src={item.thumbnail}
                     alt="restaurants"

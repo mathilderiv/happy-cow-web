@@ -5,21 +5,21 @@ import modal from "../img/modal.jpeg";
 // import { useEffect } from "react";
 
 const ModalLogin = (props) => {
-  if (!props.show) {
+  if (!props.showLogin) {
     return null;
   }
 
   return (
-    <div className="modal" onClick={props.onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <div className="modal-header">
-          <h4 className="modal-title">{props.title}</h4>
+    <div className="modal-login" onClick={props.onClose}>
+      <div className="modal-content-login" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-header-login">
+          <h4 className="modal-title-login">{props.title}</h4>
         </div>
-        <div className="modal-body">
-          <div className="modal-body-left">
-            <img className="modal-picture" src={modal} alt="" />
+        <div className="modal-body-login">
+          <div className="modal-body-left-login">
+            <img className="modal-picture-login" src={modal} alt="" />
           </div>
-          <div className="modal-body-right">{props.children}</div>
+          <div className="modal-body-right-login">{props.children}</div>
         </div>
         {/* <div className="modal-footer">
           <button onClick={props.onClose} className="button">

@@ -57,7 +57,7 @@ body {
   margin-right: 10px;
 }
 
-.login {
+.signup {
   height: 3rem;
   width: 7rem;
   border: 1px solid #7b4ec3;
@@ -69,6 +69,17 @@ body {
   margin-right: 10px;
 }
 
+.login {
+  height: 3rem;
+  width: 7rem;
+  border: 1px solid #7b4ec3;
+  border-radius: 5px;
+  background-color: #7b4ec3;
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+  margin-right: 10px;
+}
 /* HOME */
 
 .top {
@@ -281,7 +292,7 @@ h2 {
 }
 
 .input-search {
-  width: 50%;
+  width: 100%;
   height: 48px;
 }
 
@@ -1046,6 +1057,85 @@ FOOTER */
 }
 
 .modal-button {
+  height: 3rem;
+  width: 9rem;
+  border: 1px solid #7b4ec3;
+  border-radius: 5px;
+  background-color: #7b4ec3;
+
+  color: white;
+  font-size: 16px;
+}
+
+.modal-login {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.modal-content-login {
+  background-color: #fff;
+}
+
+.modal-header-login {
+  padding: 10px;
+}
+
+.modal-title-login {
+  margin: 0;
+  font-size: 28px;
+}
+
+.modal-body-login {
+  display: flex;
+  width: 830px;
+  height: 550px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-body-right-login {
+  height: 100%;
+  width: 55%;
+
+  display: flex;
+}
+
+.modal-body-left-login {
+  width: 45%;
+  height: 100%;
+}
+
+.modal-picture-login {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.signup-form-login {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-form-login input {
+  margin-bottom: 20px;
+  margin-top: 10px;
+  width: 250px;
+  height: 2rem;
+  border: 1px solid lightgrey;
+}
+
+.modal-login-button {
   height: 3rem;
   width: 9rem;
   border: 1px solid #7b4ec3;
