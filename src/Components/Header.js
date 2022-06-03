@@ -150,7 +150,7 @@ const Header = () => {
             </form>
           </Modal>
 
-          <Modal
+          <ModalLogin
             title="Log in"
             onClose={() => {
               setShowLogin(false);
@@ -190,7 +190,7 @@ const Header = () => {
                 Login
               </button>
             </form>
-          </Modal>
+          </ModalLogin>
         </div>
       </div>
     </div>

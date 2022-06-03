@@ -1003,6 +1003,7 @@ FOOTER */
 
 .modal-content {
   background-color: #fff;
+  border-radius: 10px;
 }
 
 .modal-header {
@@ -1082,6 +1083,7 @@ FOOTER */
 
 .modal-content-login {
   background-color: #fff;
+  border-radius: 10px;
 }
 
 .modal-header-login {

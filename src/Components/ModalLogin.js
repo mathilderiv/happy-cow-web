@@ -2,8 +2,6 @@ import React from "react";
 
 import modal from "../img/modal.jpeg";
 
-// import { useEffect } from "react";
-
 const ModalLogin = (props) => {
   if (!props.showLogin) {
     return null;
