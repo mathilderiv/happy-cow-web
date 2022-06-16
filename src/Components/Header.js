@@ -5,6 +5,8 @@ import { useState } from "react";
 
 import axios from "axios";
 
+import Cookies from "js-cookie";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Modal from "./Modal";
@@ -23,6 +25,14 @@ const Header = () => {
 
   const [error, setError] = useState("");
 
+  const handleToken = (token) => {
+    if (token) {
+      Cookies.set("userToken", token, { expires: 7 });
+    } else {
+      Cookies.remove("userToken");
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError("");
@@ -35,7 +45,10 @@ const Header = () => {
             username,
             password,
           });
-          console.log("response", response.data);
+          // console.log("response", response.data);
+          ///Enregistrement du token dans les cookies
+
+          handleToken(response.data.token);
           //prévenir le client de la création du compte.
           alert("votre compte a bien été créé");
           setShow(false);
@@ -105,6 +118,7 @@ const Header = () => {
               setError("");
             }}
             show={show}
+            handleToken={handleToken}
           >
             <form className="signup-form" onSubmit={handleSubmit}>
               Email
@@ -154,7 +168,7 @@ const Header = () => {
             title="Log in"
             onClose={() => {
               setShowLogin(false);
-              // setError("");
+              handleToken = { handleToken };
             }}
             showLogin={showLogin}
           >

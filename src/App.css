@@ -13,7 +13,7 @@ body {
 
 .logo-happycow {
   width: 160px;
-  height: 30;
+  height: 30px;
   object-fit: cover;
   margin-top: 1rem;
   margin-left: 2rem;
@@ -21,14 +21,15 @@ body {
 
 .menu {
   display: flex;
-  width: 50%;
+
   margin-left: 2rem;
-  margin-top: 2rem;
+  align-items: center;
 }
 
 .menu p {
   margin-right: 1rem;
   font-size: 18px;
+  width: 100%;
   font-weight: bold;
   color: #616161;
 }
@@ -36,7 +37,6 @@ body {
 .right-part {
   margin-top: 10px;
   margin-left: 25rem;
-  width: 30%;
   display: flex;
   justify-content: flex-end;
 }
@@ -55,6 +55,11 @@ body {
   color: #7b4ec3;
   font-size: 16px;
   margin-right: 10px;
+}
+
+.app {
+  width: 100%;
+  display: flex;
 }
 
 .signup {

@@ -141,6 +141,7 @@ export default function Home() {
                 >
                   {/* <div className="restaurants-top-cards" key={index}> */}
                   <div className="pictures-condition">
+                    0
                     {item.thumbnail ? (
                       <img
                         className="restaurant-top-picture"

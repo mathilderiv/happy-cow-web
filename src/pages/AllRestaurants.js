@@ -104,7 +104,7 @@ export default function AllRestaurants() {
               className="page-add"
               onClick={() => {
                 setPage(page + 1);
-                setSkip(page * 50); //il faut laisser le temps à setPage de se mettre à jour
+                setSkip(page * 51);
               }}
             >
               Page suivante

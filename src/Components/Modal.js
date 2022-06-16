@@ -2,7 +2,7 @@ import React from "react";
 
 import modal from "../img/modal.jpeg";
 
-const Modal = (props) => {
+const Modal = (props, handleToken) => {
   if (!props.show) {
     return null;
   }
