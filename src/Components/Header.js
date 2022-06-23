@@ -23,13 +23,19 @@ const Header = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  //State pour l'affichage ou non du bouton deconnexion
+
+  const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
+
   const [error, setError] = useState("");
 
-  const handleToken = (token) => {
+  let handleToken = (token) => {
     if (token) {
       Cookies.set("userToken", token, { expires: 7 });
+      setUserToken(token);
     } else {
       Cookies.remove("userToken");
+      setUserToken(null);
     }
   };
 
@@ -72,6 +78,22 @@ const Header = () => {
     }
   };
 
+  const handleSubmitLogin = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post("http://localhost:4000/login", {
+        email,
+        username,
+        password,
+      });
+      // console.log(response.data);
+      handleToken(response.data.token);
+      alert("Bienvenu sur HappyCow");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="header">
       <Link to="/">
@@ -102,14 +124,27 @@ const Header = () => {
         <button className="add">
           <p>Add Listing</p>
         </button>
-        <div className="app">
-          <button onClick={() => setShow(true)} className="signup">
-            <p>Signup</p>
-          </button>
 
-          <button onClick={() => setShowLogin(true)} className="login">
-            <p>Login</p>
-          </button>
+        <div className="app">
+          {!userToken ? (
+            <>
+              <button onClick={() => setShow(true)} className="signup">
+                <p>Signup</p>
+              </button>
+              <button onClick={() => setShowLogin(true)} className="login">
+                <p>Login</p>
+              </button>{" "}
+            </>
+          ) : (
+            <button
+              className="logout"
+              onClick={() => {
+                handleToken();
+              }}
+            >
+              <p>Logout</p>
+            </button>
+          )}
 
           <Modal
             title="Sign Up"
@@ -172,7 +207,7 @@ const Header = () => {
             }}
             showLogin={showLogin}
           >
-            <form className="signup-form-login">
+            <form className="signup-form-login" onSubmit={handleSubmitLogin}>
               Email
               <input
                 type="email"
