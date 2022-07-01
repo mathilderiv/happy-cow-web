@@ -137,6 +137,16 @@ export default function Home() {
                   state={item}
                 >
                   <div className="restaurants-top-cards" key={index}>
+                    <FontAwesomeIcon
+                      className="heart-10"
+                      style={{
+                        color: "#ED5450",
+
+                        height: "30px",
+                        width: "30px",
+                      }}
+                      icon="heart"
+                    />
                     <div className="pictures-condition">
                       {item.thumbnail ? (
                         <img
@@ -155,7 +165,9 @@ export default function Home() {
                       <h3>{item.name}</h3>
                     </div>
                     <div className="rating-top">
-                      <p>{DisplayStars(item.rating)}</p>
+                      <p className="space-reviews">
+                        {DisplayStars(item.rating)}
+                      </p>
                       <p>{item.placeId} reviews</p>
                     </div>
                   </div>

@@ -151,7 +151,6 @@ h2 {
   display: flex;
   justify-content: space-between;
   margin-top: 4rem;
-  margin-bottom: 2rem;
 }
 
 .see-all {
@@ -176,7 +175,6 @@ h2 {
   display: flex;
   justify-content: space-between;
   margin-top: 4rem;
-  margin-bottom: 2rem;
 }
 
 .main-10 {
@@ -264,6 +262,10 @@ h2 {
   display: flex;
 }
 
+.space-reviews {
+  margin-right: 10px;
+}
+
 .rating p,
 .rating-top {
   margin-right: 10px;
@@ -278,6 +280,12 @@ h2 {
   height: 100%;
   width: 255px;
   margin-right: 1rem;
+}
+
+.heart-10 {
+  position: relative;
+  top: 40px;
+  right: 75px;
 }
 
 .restaurant-top-picture {
