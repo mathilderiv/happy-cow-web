@@ -209,9 +209,16 @@ h2 {
 
 .restaurants-cards {
   text-decoration: none;
+
   height: 100%;
   width: 255px;
   margin-right: 1rem;
+}
+
+.heart {
+  position: relative;
+  top: 40px;
+  right: 75px;
 }
 
 .restaurant-picture {

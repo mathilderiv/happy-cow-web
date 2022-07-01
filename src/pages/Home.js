@@ -61,29 +61,28 @@ export default function Home() {
             return (
               <Link className="restaurant-link" to={"/restaurant"} state={item}>
                 <div key={item.placeId} className="restaurants-cards">
-                  <div className="icons-picture">
-                    <FontAwesomeIcon
-                      className="heart"
-                      style={{
-                        color: "#ED5450",
+                  <FontAwesomeIcon
+                    className="heart"
+                    style={{
+                      color: "#ED5450",
 
-                        height: "30px",
-                        width: "30px",
-                      }}
-                      icon="heart"
-                    />
-                    <div className="pictures-condition">
-                      {item.thumbnail ? (
-                        <img
-                          className="restaurant-picture"
-                          src={item.thumbnail}
-                          alt="restaurants"
-                        />
-                      ) : (
-                        <img src={happycowempty} alt="happycow" />
-                      )}
-                    </div>
+                      height: "30px",
+                      width: "30px",
+                    }}
+                    icon="heart"
+                  />
+                  <div className="pictures-condition">
+                    {item.thumbnail ? (
+                      <img
+                        className="restaurant-picture"
+                        src={item.thumbnail}
+                        alt="restaurants"
+                      />
+                    ) : (
+                      <img src={happycowempty} alt="happycow" />
+                    )}
                   </div>
+
                   <div className="restaurants-title">
                     <p>{IconCondition(item.type)}</p>
                     <h3>{item.name}</h3>
