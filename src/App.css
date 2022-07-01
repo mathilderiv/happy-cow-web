@@ -21,6 +21,7 @@ body {
 
 .menu {
   display: flex;
+  width: 50%;
 
   margin-left: 2rem;
   align-items: center;
@@ -29,16 +30,18 @@ body {
 .menu p {
   margin-right: 1rem;
   font-size: 18px;
-  width: 100%;
   font-weight: bold;
   color: #616161;
 }
 
 .right-part {
-  margin-top: 10px;
-  margin-left: 25rem;
+  width: 50%;
+  height: 100%;
+
+  box-sizing: border-box;
+  padding-left: 30%;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
 }
 
 .left-part button {
@@ -382,7 +385,8 @@ input::placeholder {
 
 .right-part-header {
   width: 25%;
-  text-align: center;
+  border: solid black 1px;
+  /* text-align: center; */
   padding-right: 10%;
   box-sizing: border-box;
 }
