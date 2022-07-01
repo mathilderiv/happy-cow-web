@@ -60,60 +60,58 @@ export default function Home() {
 
             return (
               <Link className="restaurant-link" to={"/restaurant"} state={item}>
-                <div className="carroussel">
-                  <div key={item.placeId} className="restaurants-cards">
-                    <div className="icons-picture">
-                      <FontAwesomeIcon
-                        className="heart"
-                        style={{
-                          color: "#ED5450",
+                <div key={item.placeId} className="restaurants-cards">
+                  <div className="icons-picture">
+                    <FontAwesomeIcon
+                      className="heart"
+                      style={{
+                        color: "#ED5450",
 
-                          height: "30px",
-                          width: "30px",
-                        }}
-                        icon="heart"
-                      />
-                      <div className="pictures-condition">
-                        {item.thumbnail ? (
-                          <img
-                            className="restaurant-picture"
-                            src={item.thumbnail}
-                            alt="restaurants"
-                          />
-                        ) : (
-                          <img src={happycowempty} alt="happycow" />
-                        )}
-                      </div>
+                        height: "30px",
+                        width: "30px",
+                      }}
+                      icon="heart"
+                    />
+                    <div className="pictures-condition">
+                      {item.thumbnail ? (
+                        <img
+                          className="restaurant-picture"
+                          src={item.thumbnail}
+                          alt="restaurants"
+                        />
+                      ) : (
+                        <img src={happycowempty} alt="happycow" />
+                      )}
                     </div>
-                    <div className="restaurants-title">
-                      <p>{IconCondition(item.type)}</p>
-                      <h3>{item.name}</h3>
-                    </div>
-                    <div className="address">
-                      <p
-                        className="city-country"
-                        style={{
-                          color: "#777777",
-                          fontWeight: "bold",
-                          fontSize: "14px",
-                        }}
-                      >
-                        {adressAndCountry[adressAndCountry.length - 3]} ,{" "}
-                        {adressAndCountry[adressAndCountry.length - 1]} ,{" "}
-                        {adressAndCountry[adressAndCountry.length - 2]}
-                      </p>
+                  </div>
+                  <div className="restaurants-title">
+                    <p>{IconCondition(item.type)}</p>
+                    <h3>{item.name}</h3>
+                  </div>
+                  <div className="address">
+                    <p
+                      className="city-country"
+                      style={{
+                        color: "#777777",
+                        fontWeight: "bold",
+                        fontSize: "14px",
+                      }}
+                    >
+                      {adressAndCountry[adressAndCountry.length - 3]} ,{" "}
+                      {adressAndCountry[adressAndCountry.length - 1]} ,{" "}
+                      {adressAndCountry[adressAndCountry.length - 2]}
+                    </p>
 
-                      <div className="rating">
-                        <p>{DisplayStars(item.rating)}</p>
-                        <p>{item.placeId} reviews</p>
-                      </div>
-                      <div className="description">
-                        {item.description ? (
-                          <p>{item.description.slice(0, 100)}...</p>
-                        ) : (
-                          <p>En cours d'écriture...</p>
-                        )}
-                      </div>
+                    <div className="rating">
+                      <p>{DisplayStars(item.rating)}</p>
+                      <p>{item.placeId} reviews</p>
+                    </div>
+                    <div className="description">
+                      {item.description ? (
+                        <p>{item.description.slice(0, 100)}...</p>
+                      ) : (
+                        <p>En cours d'écriture...</p>
+                      )}
                     </div>
                   </div>
                 </div>
