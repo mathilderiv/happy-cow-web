@@ -137,28 +137,29 @@ export default function Home() {
                   to={"/restaurant"}
                   state={item}
                 >
-                  {/* <div className="restaurants-top-cards" key={index}> */}
-                  <div className="pictures-condition">
-                    0
-                    {item.thumbnail ? (
-                      <img
-                        className="restaurant-top-picture"
-                        src={item.thumbnail}
-                        alt="restaurants"
-                      />
-                    ) : (
-                      <img src={happycowempty} alt="happycow" />
-                    )}
+                  <div className="restaurants-top-cards" key={index}>
+                    <div className="pictures-condition">
+                      {item.thumbnail ? (
+                        <img
+                          className="restaurant-top-picture"
+                          src={item.thumbnail}
+                          alt="restaurants"
+                        />
+                      ) : (
+                        <img src={happycowempty} alt="happycow" />
+                      )}
+                    </div>
+                    <div className="restaurants-top-title">
+                      <p className="iconCondition">
+                        {IconCondition(item.type)}
+                      </p>
+                      <h3>{item.name}</h3>
+                    </div>
+                    <div className="rating-top">
+                      <p>{DisplayStars(item.rating)}</p>
+                      <p>{item.placeId} reviews</p>
+                    </div>
                   </div>
-                  <div className="restaurants-top-title">
-                    <p className="iconCondition">{IconCondition(item.type)}</p>
-                    <h3>{item.name}</h3>
-                  </div>
-                  <div className="rating-top">
-                    <p>{DisplayStars(item.rating)}</p>
-                    <p>{item.placeId} reviews</p>
-                  </div>
-                  {/* </div> */}
                 </Link>
               );
             })}

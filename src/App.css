@@ -135,7 +135,6 @@ h2 {
   display: flex;
   overflow: hidden;
   overflow-x: scroll;
-
   width: 100%;
 
   /* Pour IE et Edge  */
@@ -150,7 +149,6 @@ h2 {
 
 .category1 {
   display: flex;
-
   justify-content: space-between;
   margin-top: 4rem;
   margin-bottom: 2rem;
@@ -191,6 +189,7 @@ h2 {
   -ms-overflow-style: none;
   /* Pour Firefox */
   scrollbar-width: none;
+  border: solid 1 px orange;
 }
 
 .main-10::-webkit-scrollbar {
@@ -211,7 +210,7 @@ h2 {
 .restaurants-cards {
   text-decoration: none;
   height: 100%;
-  width: 250px;
+  width: 255px;
   margin-right: 1rem;
 }
 
@@ -239,8 +238,6 @@ h2 {
 .description {
   text-overflow: ellipsis;
   width: 90%;
-
-  /* white-space: nowrap; */
   overflow: hidden;
   margin-top: 20px;
   color: #444444;
@@ -270,14 +267,14 @@ h2 {
 /* RESTAURANTS TOP CARDS */
 
 .restaurants-top-cards {
-  /* height: 350px; */
+  text-decoration: none;
+  height: 100%;
+  width: 255px;
   margin-right: 1rem;
-  width: calc(100% / 4 - 48px / 3);
-  flex-shrink: 0;
 }
 
 .restaurant-top-picture {
-  width: 100%;
+  width: 90%;
   height: 11rem;
   object-fit: cover;
   border-radius: 10px;
